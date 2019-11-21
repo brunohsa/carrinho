@@ -1,7 +1,8 @@
-package br.com.unip.cardapio.security
+package br.com.unip.carrinho.security
 
+import br.com.unip.carrinho.security.IJwtTokenValidator
+import br.com.unip.carrinho.security.TokenData
 import io.jsonwebtoken.ExpiredJwtException
-import io.jsonwebtoken.JwtParser
 import io.jsonwebtoken.Jwts
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component

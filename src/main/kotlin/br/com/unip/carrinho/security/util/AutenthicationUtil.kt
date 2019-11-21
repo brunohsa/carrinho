@@ -1,4 +1,4 @@
-package br.com.unip.cardapio.security.util
+package br.com.unip.carrinho.security.util
 
 import org.springframework.security.core.context.SecurityContextHolder
 

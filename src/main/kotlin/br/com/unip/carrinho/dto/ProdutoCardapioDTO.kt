@@ -5,19 +5,21 @@ import com.fasterxml.jackson.annotation.JsonProperty
 class ProdutoCardapioDTO {
 
     @JsonProperty(value = "id")
-    var id: String?
+    var id: String?=""
 
     @JsonProperty(value = "nome")
-    var nome: String?
+    var nome: String?=""
 
     @JsonProperty(value = "descricao")
-    var descricao: String?
+    var descricao: String?=""
 
     @JsonProperty(value = "valor")
-    var valor: String?
+    var valor: String?=""
 
     @JsonProperty(value = "categoria")
-    var categoria: String?
+    var categoria: String?=""
+
+    constructor()
 
     constructor(id: String?, nome: String?, descricao: String?, valor: String?, categoria: String?) {
         this.id = id

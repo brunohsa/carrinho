@@ -2,14 +2,17 @@ package br.com.unip.carrinho.repository.entity
 
 class ProdutoCarrinho {
 
-    var produto: Produto? = null
+    var produtoId: String? = null
 
     var quantidade: Long? = 0
 
+    var observacoes: String? = ""
+
     constructor()
 
-    constructor(produto: Produto?, quantidade: Long?) {
-        this.produto = produto
+    constructor(produtoId: String?, quantidade: Long?, observacoes: String?) {
+        this.produtoId = produtoId
         this.quantidade = quantidade
+        this.observacoes = observacoes
     }
 }

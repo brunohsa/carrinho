@@ -1,6 +1,6 @@
-package br.com.unip.cardapio.security.filter
+package br.com.unip.carrinho.security.filter
 
-import br.com.unip.cardapio.security.util.TokenUtil
+import br.com.unip.carrinho.security.util.TokenUtil
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.security.core.context.SecurityContextHolder

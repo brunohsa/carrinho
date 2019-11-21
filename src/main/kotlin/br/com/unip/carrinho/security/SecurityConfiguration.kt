@@ -1,8 +1,9 @@
-package br.com.unip.cardapio.security
+package br.com.unip.carrinho.security
 
-import br.com.unip.cardapio.security.filter.CorsFilterCustom
-import br.com.unip.cardapio.security.filter.JWTAuthenticationFilter
-import br.com.unip.cardapio.security.util.TokenUtil
+
+import br.com.unip.carrinho.security.filter.JWTAuthenticationFilter
+import br.com.unip.carrinho.security.util.TokenUtil
+import br.com.unip.carrinho.security.filter.CorsFilterCustom
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.builders.WebSecurity

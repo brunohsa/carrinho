@@ -1,15 +1,16 @@
 package br.com.unip.carrinho.service
 
-import br.com.unip.cardapio.security.util.AutenthicationUtil
-import br.com.unip.carrinho.dto.CarrinhoDTO
 import br.com.unip.carrinho.dto.AdicionarProdutoCarrinhoDTO
+import br.com.unip.carrinho.dto.CarrinhoDTO
 import br.com.unip.carrinho.dto.ProdutoCarrinhoDTO
 import br.com.unip.carrinho.dto.ProdutoDTO
+import br.com.unip.carrinho.exception.ClienteJaPossuiCarrinhoAtivoException
+import br.com.unip.carrinho.exception.ClienteNaoPossuiCarrinhoException
 import br.com.unip.carrinho.repository.ICarrinhoRepository
 import br.com.unip.carrinho.repository.entity.Carrinho
-import br.com.unip.carrinho.repository.entity.Produto
 import br.com.unip.carrinho.repository.entity.ProdutoCarrinho
 import br.com.unip.carrinho.repository.entity.enums.EStatusCarrinho
+import br.com.unip.carrinho.security.util.AutenthicationUtil
 import org.springframework.stereotype.Service
 import java.math.BigDecimal
 
@@ -22,46 +23,73 @@ class CarrinhoService(val carrinhoRepository: ICarrinhoRepository,
         val email = AutenthicationUtil.getUsuarioLogado()
         val cadastro = autenticacaoService.buscarCadastroPorEmail(email)
 
+        val possuiCarrinho = carrinhoRepository.buscarCarrinho(cadastro.uuid) != null
+        if (possuiCarrinho) {
+            throw ClienteJaPossuiCarrinhoAtivoException()
+        }
         val uuidCliente = cadastro.uuid
         val carrinho = Carrinho(
                 uuidCliente = uuidCliente,
-                status = EStatusCarrinho.PENDENTE
+                status = EStatusCarrinho.ATIVO
         )
         carrinhoRepository.save(carrinho)
         return carrinho.id!!
     }
 
+    override fun buscar(): CarrinhoDTO {
+        val email = AutenthicationUtil.getUsuarioLogado()
+        val cadastro = autenticacaoService.buscarCadastroPorEmail(email)
+
+        val carrinho = carrinhoRepository.buscarCarrinho(cadastro.uuid) ?: throw ClienteNaoPossuiCarrinhoException()
+        return this.map(carrinho)
+    }
+
+    override fun finalizar(id: String) {
+        val carrinho = carrinhoRepository.findById(id).orElseThrow { ClienteNaoPossuiCarrinhoException() }
+        carrinho.status = EStatusCarrinho.FINALIZADO
+
+        carrinhoRepository.save(carrinho)
+    }
+
     override fun adicionarProduto(idCarrinho: String?, dto: AdicionarProdutoCarrinhoDTO): CarrinhoDTO {
         val carrinho = carrinhoRepository.findById(idCarrinho!!).orElseThrow { RuntimeException() }
 
-        val produto = carrinho.produtos!!.filter { p -> p.produto!!.id == dto.id }[0]
+        val produtos = carrinho.produtos!!.toMutableList()
+        val produto = produtos.find { p -> p.produtoId == dto.id }
         if (produto != null) {
-            produto.quantidade!!.plus(dto.quantidade!!)
+            produtos.remove(produto)
+            produto.quantidade = produto.quantidade!!.plus(dto.quantidade!!)
+            produtos.add(produto)
         } else {
             val produtoDto = produtoService.buscarProduto(dto.id!!)
-            val produto = Produto(produtoDto.id, produtoDto.nome, BigDecimal(produtoDto.valor))
-            val carrinhoProduto = ProdutoCarrinho(produto, dto.quantidade)
-            carrinho.produtos!!.plus(carrinhoProduto)
+            val carrinhoProduto = ProdutoCarrinho(produtoDto.id, dto.quantidade, dto.observacoes)
+            produtos.add(carrinhoProduto)
         }
+        carrinho.produtos = produtos
         carrinhoRepository.save(carrinho)
         return map(carrinho)
     }
 
     private fun map(carrinho: Carrinho): CarrinhoDTO {
-        val produtosCarringo = this.map(carrinho.produtos!!)
-        val valorTotal = this.somarValorTotalCarrinho(produtosCarringo)
-        return CarrinhoDTO(carrinho.id, produtosCarringo, valorTotal)
+        val produtosCarrinho = this.map(carrinho.produtos!!)
+        val valorTotal = this.somarValorTotalCarrinho(produtosCarrinho)
+        return CarrinhoDTO(carrinho.id, produtosCarrinho, valorTotal)
     }
 
     private fun somarValorTotalCarrinho(produtosCarrinho: List<ProdutoCarrinhoDTO>): BigDecimal {
-        return produtosCarrinho.map { p -> p.produto!!.valor!! }.reduce { valor1, valor2 -> valor1 + valor2 }
+        var valorTotal: BigDecimal = BigDecimal.ZERO
+        produtosCarrinho.forEach { p ->
+            val valor = p.produto!!.valor!!.multiply(BigDecimal(p.quantidade!!))
+            valorTotal += valor
+        }
+        return valorTotal
     }
 
     private fun map(produtosCarrinho: List<ProdutoCarrinho>): List<ProdutoCarrinhoDTO> {
         return produtosCarrinho.map { pc ->
-            val produto = pc.produto!!
-            val produtoDTO = ProdutoDTO(produto.id, produto.nome, produto.valor)
-            ProdutoCarrinhoDTO(produtoDTO, pc.quantidade)
+            val produtoCardapioDTO = produtoService.buscarProduto(pc.produtoId!!)
+            val produtoDTO = ProdutoDTO(produtoCardapioDTO.id, produtoCardapioDTO.nome, BigDecimal(produtoCardapioDTO.valor))
+            ProdutoCarrinhoDTO(produtoDTO, pc.quantidade, pc.observacoes)
         }.toList()
     }
 }

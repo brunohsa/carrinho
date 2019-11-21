@@ -1,6 +1,6 @@
-package br.com.unip.cardapio.security.util
+package br.com.unip.carrinho.security.util
 
-import br.com.unip.cardapio.security.JwtTokenValidator
+import br.com.unip.carrinho.security.JwtTokenValidator
 import io.jsonwebtoken.ExpiredJwtException
 import io.jsonwebtoken.Jwts
 import org.springframework.beans.factory.annotation.Value
@@ -23,7 +23,6 @@ class TokenUtil {
     constructor(jwt: JwtTokenValidator) {
         this.jwt = jwt
     }
-
 
     @Throws(/*TokenExpiradoException::class, TokenInvalidoException::class*/java.lang.RuntimeException::class)
     fun getAuthentication(request: HttpServletRequest): UsernamePasswordAuthenticationToken {

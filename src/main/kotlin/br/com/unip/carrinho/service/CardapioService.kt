@@ -7,6 +7,6 @@ import org.springframework.stereotype.Service
 class CardapioService(val restService: IRestService) : ICardapioService {
 
     override fun buscarProduto(idProduto: String): ProdutoCardapioDTO {
-        return restService.get(" http://localhost:8083/cardapio/api/v1/produtos/$idProduto", ProdutoCardapioDTO::class)
+        return restService.get("http://localhost:8083/cardapio/api/v1/produtos/$idProduto", ProdutoCardapioDTO::class)
     }
 }

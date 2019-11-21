@@ -7,5 +7,9 @@ interface ICarrinhoService {
 
     fun criar(): String
 
+    fun buscar(): CarrinhoDTO
+
     fun adicionarProduto(idCarrinho: String?, dto: AdicionarProdutoCarrinhoDTO): CarrinhoDTO
+
+    fun finalizar(id: String)
 }

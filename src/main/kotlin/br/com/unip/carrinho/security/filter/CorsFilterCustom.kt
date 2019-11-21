@@ -1,4 +1,4 @@
-package br.com.unip.cardapio.security.filter
+package br.com.unip.carrinho.security.filter
 
 import org.springframework.stereotype.Component
 import java.io.IOException

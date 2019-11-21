@@ -1,4 +1,4 @@
-package br.com.unip.cardapio.security
+package br.com.unip.carrinho.security
 
 interface IJwtTokenValidator {
 
