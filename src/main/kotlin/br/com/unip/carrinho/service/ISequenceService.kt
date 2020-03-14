@@ -2,5 +2,7 @@ package br.com.unip.carrinho.service
 
 interface ISequenceService {
 
-    fun getNextSequenceId(key: String): Long?
+    fun getSequenceNumeroPedido(key: String): String
+
+    fun getSequence(key: String): Long
 }

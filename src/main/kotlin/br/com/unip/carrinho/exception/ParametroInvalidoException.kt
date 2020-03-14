@@ -1,10 +1,11 @@
 package br.com.unip.carrinho.exception
 
-import org.springframework.http.HttpStatus
+import br.com.unip.carrinho.exception.ECodigoErro.PARAMETRO_INVALIDO
+import org.springframework.http.HttpStatus.BAD_REQUEST
 
-class ParametroInvalidoException : CadastroException {
+class ParametroInvalidoException : CarrinhoBaseException {
 
-    constructor(mensagem: String) : this(mensagem, ECodigoErro.CAD001)
+    constructor() : this(PARAMETRO_INVALIDO)
 
-    constructor(mensagem: String, codigoErro: ECodigoErro) : super(codigoErro, HttpStatus.BAD_REQUEST, mensagem)
+    constructor(codigoErro: ECodigoErro) : super(codigoErro, BAD_REQUEST)
 }

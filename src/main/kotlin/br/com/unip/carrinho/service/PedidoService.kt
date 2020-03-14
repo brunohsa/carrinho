@@ -1,87 +1,95 @@
 package br.com.unip.carrinho.service
 
+import br.com.unip.autenticacaolib.util.AuthenticationUtil
+import br.com.unip.carrinho.dto.DadosPagamentoDTO
 import br.com.unip.carrinho.dto.ItemDTO
 import br.com.unip.carrinho.dto.PedidoDTO
+import br.com.unip.carrinho.dto.ProdutoCarrinhoDTO
+import br.com.unip.carrinho.exception.ECodigoErro.PEDIDO_NAO_ENCONTRADO
+import br.com.unip.carrinho.exception.NaoEncontradoException
 import br.com.unip.carrinho.repository.IPedidoRepository
 import br.com.unip.carrinho.repository.entity.Item
 import br.com.unip.carrinho.repository.entity.Pedido
-import br.com.unip.carrinho.repository.entity.enums.EStatusPedido
-import br.com.unip.carrinho.security.util.AutenthicationUtil
-import br.com.unip.carrinho.webservice.model.response.ItemResponse
-import org.springframework.data.mongodb.core.MongoOperations
+import br.com.unip.carrinho.repository.entity.Sequence.PEDIDO_SEQUENCE
 import org.springframework.data.mongodb.core.MongoTemplate
-import org.springframework.data.mongodb.core.find
-import org.springframework.stereotype.Service
 import org.springframework.data.mongodb.core.query.Criteria
 import org.springframework.data.mongodb.core.query.Query
-import java.lang.RuntimeException
+import org.springframework.stereotype.Service
+import java.math.BigDecimal
 
 
 @Service
 class PedidoService(val carrinhoService: ICarrinhoService,
-                    val autenticacaoService: IAutenticacaoService,
                     val pedidoRepository: IPedidoRepository,
                     val sequenceService: ISequenceService,
                     val mongoTemplate: MongoTemplate,
-                    val produtoService: ICardapioService) : IPedidoService {
+                    val pagamentoService: IPagamentoService) : IPedidoService {
 
-    override fun gerar(): String {
-        val email = AutenthicationUtil.getUsuarioLogado()
-        val cadastro = autenticacaoService.buscarCadastroPorEmail(email)
+    override fun gerar(): PedidoDTO {
+        val cadastroUUID = getCadatroUUID()
 
         val carrinho = carrinhoService.buscar()
-        val produtosCarrinho = carrinho.produtos!!
-        val itens = produtosCarrinho.map { pc ->
-            val produto = pc.produto!!
-            Item(produto.id, pc.observacoes, pc.quantidade, cadastro.pessoa.nome)
+        val itens = carrinho.produtos.map { pc -> Item(pc.produto.nome, pc.observacoes, pc.quantidade) }
+        val numero = sequenceService.getSequenceNumeroPedido("$PEDIDO_SEQUENCE-${cadastroUUID}")
+        val valorTotal = calcularValorPedido(carrinho.produtos)
+
+        val pedido = Pedido(cadastroUUID, numero, itens, valorTotal)
+        pedidoRepository.save(pedido)
+        carrinhoService.finalizar(carrinho.id)
+
+        return map(pedido)
+    }
+
+    private fun calcularValorPedido(produtosCarrinho: List<ProdutoCarrinhoDTO>): BigDecimal {
+        var valorTotal: BigDecimal = BigDecimal.ZERO
+        produtosCarrinho.forEach { pc -> valorTotal += pc.produto.valor.multiply(BigDecimal(pc.quantidade)) }
+        return valorTotal
+    }
+
+    override fun buscarPedidos(status: List<String>): List<PedidoDTO> {
+        var criteria = Criteria.where("cadastroUUID").`is`(getCadatroUUID())
+        if (status.isNotEmpty()) {
+            criteria = criteria.and("status").`in`(status)
         }
-        val numero = sequenceService.getNextSequenceId("pedido_sequence")
-        val pedido = Pedido(cadastro.uuid, numero, itens)
-
-        pedidoRepository.save(pedido)
-        carrinhoService.finalizar(carrinho.id!!)
-
-        return pedido.id!!
-    }
-
-    override fun concluido(pedidoId: String) {
-        this.mudarStatus(pedidoId, EStatusPedido.CONCLUIDO)
-    }
-
-    override fun preparando(pedidoId: String) {
-        this.mudarStatus(pedidoId, EStatusPedido.PREPARANDO)
-    }
-
-    private fun mudarStatus(pedidoId: String, status: EStatusPedido) {
-        val pedido = pedidoRepository.findById(pedidoId).orElseThrow { RuntimeException("Pedido não encontrado") }
-        pedido.status = status
-
-        pedidoRepository.save(pedido)
-    }
-
-    override fun buscarPedidos(): List<PedidoDTO> {
-        val email = AutenthicationUtil.getUsuarioLogado()
-        val cadastro = autenticacaoService.buscarCadastroPorEmail(email)
-
-        val query = Query()
-        query.addCriteria(Criteria.where("uuidCliente").`is`(cadastro.uuid)
-                .and("status").ne(EStatusPedido.CONCLUIDO))
-
+        val query = Query().addCriteria(criteria)
         val pedidos = mongoTemplate.find(query, Pedido::class.java)
+
         return this.map(pedidos)
     }
 
-    fun map(pedidos: List<Pedido>): List<PedidoDTO> {
-        return pedidos.map { p ->
-            val itens = this.mapItens(p.itens!!)
-            PedidoDTO(p.id, p.uuidCliente, p.numero, itens, p.status.toString())
-        }
+    override fun concluido(pedidoId: String) {
+        val pedido = buscarPedido(pedidoId)
+        pedido.paraConcluido()
+
+        pedidoRepository.save(pedido)
     }
 
-    fun mapItens(itens: List<Item>): List<ItemDTO> {
-        return itens.map { i ->
-            val produto = produtoService.buscarProduto(i.produtoId!!)
-            ItemDTO(produto, i.observacoes, i.quantidade, i.cliente)
-        }
+    override fun pagar(id: String, dadosPagamento: DadosPagamentoDTO) {
+        val pedido = buscarPedido(id)
+        val pagamento = pagamentoService.pagar(dadosPagamento, pedido.valor)
+        pedido.pagamento = pagamento
+        pedido.paraPendentePreparacao()
+
+        pedidoRepository.save(pedido)
+    }
+
+    private fun buscarPedido(id: String): Pedido {
+        return pedidoRepository.findById(id).orElseThrow { NaoEncontradoException(PEDIDO_NAO_ENCONTRADO) }
+    }
+
+    private fun map(pedidos: List<Pedido>): List<PedidoDTO> {
+        return pedidos.map { p -> map(p) }
+    }
+
+    private fun map(pedido: Pedido): PedidoDTO {
+        return PedidoDTO(pedido.id, pedido.numero, mapItens(pedido.itens), pedido.status.toString(), pedido.valor)
+    }
+
+    private fun mapItens(itens: List<Item>): List<ItemDTO> {
+        return itens.map { i -> ItemDTO(i.produto, i.observacoes, i.quantidade) }
+    }
+
+    private fun getCadatroUUID(): String {
+        return AuthenticationUtil.getCadastroUUID()!!
     }
 }

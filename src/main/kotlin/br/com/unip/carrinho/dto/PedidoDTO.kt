@@ -1,17 +1,20 @@
 package br.com.unip.carrinho.dto
 
-class PedidoDTO {
-    var id: String? = ""
-    var uuidCliente: String? = ""
-    var numero: Long? = 0
-    var itens: List<ItemDTO>? = emptyList()
-    var status: String? = ""
+import java.math.BigDecimal
 
-    constructor(id: String?, uuidCliente: String?, numero: Long?, itens: List<ItemDTO>?, status: String?) {
+class PedidoDTO {
+
+    var id: String
+    var numero: String
+    var itens: List<ItemDTO> = emptyList()
+    var status: String
+    var valor: BigDecimal
+
+    constructor(id: String, numero: String, itens: List<ItemDTO>, status: String, valor: BigDecimal) {
         this.id = id
-        this.uuidCliente = uuidCliente
         this.numero = numero
         this.itens = itens
         this.status = status
+        this.valor = valor
     }
 }

@@ -2,13 +2,18 @@ package br.com.unip.carrinho.dto
 
 class ProdutoCarrinhoDTO {
 
-    var produto: ProdutoDTO? = null
-    var quantidade: Long? = 0
+    lateinit var produto: ProdutoDTO
     var observacoes: String? = ""
+    var quantidade: Long = 0
 
-    constructor(produto: ProdutoDTO?, quantidade: Long?, observacoes: String?) {
+    constructor(produto: ProdutoDTO, observacoes: String?, quantidade: Long) : this(observacoes, quantidade) {
         this.produto = produto
-        this.quantidade = quantidade
-        this.observacoes = observacoes
     }
+
+    constructor(observacoes: String?, quantidade: Long) {
+        this.observacoes = observacoes
+        this.quantidade = quantidade
+    }
+
+
 }

@@ -54,6 +54,12 @@
         </dependency>
 
         <dependency>
+            <groupId>br.com.unip.cardapio</groupId>
+            <artifactId>autenticacao-lib</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
             <version>${io-jwt.version}</version>

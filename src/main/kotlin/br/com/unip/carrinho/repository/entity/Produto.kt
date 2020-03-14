@@ -1,17 +1,20 @@
 package br.com.unip.carrinho.repository.entity
 
+import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.mapping.Document
 import java.math.BigDecimal
 
+@Document(collection = "produto")
 class Produto {
 
-    var id: String? = null
+    @Id
+    lateinit var id: String
 
-    var nome: String? = null
+    var nome: String
 
-    var valor: BigDecimal? = null
+    var valor: BigDecimal
 
-    constructor(id: String?, nome: String?, valor: BigDecimal?) {
-        this.id = id
+    constructor(nome: String, valor: BigDecimal) {
         this.nome = nome
         this.valor = valor
     }

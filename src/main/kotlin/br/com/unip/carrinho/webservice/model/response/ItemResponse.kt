@@ -3,22 +3,19 @@ package br.com.unip.carrinho.webservice.model.response
 import com.fasterxml.jackson.annotation.JsonProperty
 
 class ItemResponse {
+
     @JsonProperty("produto")
-    var produto: ProdutoResponse? = null
+    var produto: String
 
     @JsonProperty("observacoes")
     var observacoes: String? = ""
 
     @JsonProperty("quantidade")
-    var quantidade: Long? = 0
+    var quantidade: Long = 0
 
-    @JsonProperty("cliente")
-    var cliente: String? = ""
-
-    constructor(produto: ProdutoResponse?, observacoes: String?, quantidade: Long?, cliente: String?) {
+    constructor(produto: String, observacoes: String?, quantidade: Long) {
         this.produto = produto
         this.observacoes = observacoes
         this.quantidade = quantidade
-        this.cliente = cliente
     }
 }

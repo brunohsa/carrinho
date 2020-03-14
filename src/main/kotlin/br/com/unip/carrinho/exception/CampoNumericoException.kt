@@ -1,12 +1,11 @@
 package br.com.unip.carrinho.exception
 
-import org.springframework.http.HttpStatus
+import br.com.unip.carrinho.exception.ECodigoErro.CAMPO_DEVE_SER_NUMERICO
+import org.springframework.http.HttpStatus.BAD_REQUEST
 
-class CampoNumericoException : CadastroException {
+class CampoNumericoException : CarrinhoBaseException {
 
-    constructor() : super(ECodigoErro.CAD007, HttpStatus.BAD_REQUEST)
+    constructor() : this(CAMPO_DEVE_SER_NUMERICO)
 
-    constructor(mensagem: String) : this(mensagem, ECodigoErro.CAD007)
-
-    constructor(mensagem: String, codigoErro: ECodigoErro) : super(codigoErro, HttpStatus.BAD_REQUEST, mensagem)
+    constructor(codigoErro: ECodigoErro) : super(codigoErro, BAD_REQUEST)
 }

@@ -1,14 +1,16 @@
 package br.com.unip.carrinho.service
 
+import br.com.unip.carrinho.dto.DadosPagamentoDTO
 import br.com.unip.carrinho.dto.PedidoDTO
+import br.com.unip.carrinho.repository.entity.enums.EStatusPedido
 
 interface IPedidoService {
 
-    fun gerar(): String
+    fun gerar(): PedidoDTO
 
-    fun buscarPedidos(): List<PedidoDTO>
+    fun buscarPedidos(status: List<String>): List<PedidoDTO>
 
     fun concluido(pedidoId: String)
 
-    fun preparando(pedidoId: String)
+    fun pagar(id: String, dadosPagamento: DadosPagamentoDTO)
 }

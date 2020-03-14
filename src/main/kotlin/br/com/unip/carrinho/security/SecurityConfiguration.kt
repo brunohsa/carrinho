@@ -1,24 +1,19 @@
 package br.com.unip.carrinho.security
 
-
-import br.com.unip.carrinho.security.filter.JWTAuthenticationFilter
-import br.com.unip.carrinho.security.util.TokenUtil
+import br.com.unip.carrinho.security.filter.AuthenticationFilter
 import br.com.unip.carrinho.security.filter.CorsFilterCustom
+import org.springframework.context.MessageSource
 import org.springframework.context.annotation.Configuration
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
-import org.springframework.security.config.annotation.web.builders.WebSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
 
 @Configuration
 @EnableWebSecurity
-class SecurityConfiguration(val tokenUtil: TokenUtil) :
-        WebSecurityConfigurerAdapter() {
-
-    override fun configure(web: WebSecurity?) {
-        web!!.ignoring().antMatchers("/autenticar", "/autenticar/**", "/usuarios/**")
-    }
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+class SecurityConfiguration(val messageSource: MessageSource) : WebSecurityConfigurerAdapter() {
 
     @Throws(Exception::class)
     public override fun configure(http: HttpSecurity) {
@@ -30,8 +25,6 @@ class SecurityConfiguration(val tokenUtil: TokenUtil) :
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(CorsFilterCustom(), UsernamePasswordAuthenticationFilter::class.java)
-
-        //filtra requisicoes de login
-        .addFilterBefore(JWTAuthenticationFilter(tokenUtil), UsernamePasswordAuthenticationFilter::class.java)
+                .addFilterBefore(AuthenticationFilter(messageSource), UsernamePasswordAuthenticationFilter::class.java)
     }
 }

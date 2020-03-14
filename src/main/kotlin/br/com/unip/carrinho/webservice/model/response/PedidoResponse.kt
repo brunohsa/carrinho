@@ -1,6 +1,7 @@
 package br.com.unip.carrinho.webservice.model.response
 
 import com.fasterxml.jackson.annotation.JsonProperty
+import java.math.BigDecimal
 
 class PedidoResponse {
 
@@ -8,14 +9,18 @@ class PedidoResponse {
     var id: String?
 
     @JsonProperty("numero")
-    var numero: Long?
+    var numero: String
 
     @JsonProperty("itens")
-    var itens: List<ItemResponse>? = emptyList()
+    var itens: List<ItemResponse> = emptyList()
 
-    constructor(id: String?, numero: Long?, itens: List<ItemResponse>?) {
+    @JsonProperty("valor_total")
+    var valor: BigDecimal
+
+    constructor(id: String?, numero: String, itens: List<ItemResponse>, valor: BigDecimal) {
         this.id = id
         this.numero = numero
         this.itens = itens
+        this.valor = valor
     }
 }
