@@ -3,30 +3,38 @@ package br.com.unip.carrinho.repository.entity
 import br.com.unip.carrinho.repository.entity.enums.EStatusCarrinho
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
+import java.time.LocalDateTime
 
 @Document(collection = "carrinho")
 class Carrinho {
 
     @Id
-    var id: String? = null
+    lateinit var id: String
 
-    var uuidCliente: String? = null
+    lateinit var cadastroUUID: String
 
-    var produtos: List<ProdutoCarrinho>? = emptyList()
+    var produtos: List<ProdutoCarrinho> = emptyList()
 
-    var status: EStatusCarrinho? = null
+    lateinit var status: EStatusCarrinho
+
+    var dataCriacao: LocalDateTime = LocalDateTime.now()
 
     constructor()
 
-    constructor(uuidCliente: String?, produtos: List<ProdutoCarrinho>?, status: EStatusCarrinho?) {
+    constructor(cadastroUuid: String, produtos: List<ProdutoCarrinho>, status: EStatusCarrinho)
+            : this(cadastroUuid, status) {
         this.id = id
-        this.uuidCliente = uuidCliente
-        this.status = status
         this.produtos = produtos
     }
 
-    constructor(uuidCliente: String?, status: EStatusCarrinho?) {
-        this.uuidCliente = uuidCliente
+    constructor(cadastroUuid: String, status: EStatusCarrinho) {
+        this.cadastroUUID = cadastroUuid
         this.status = status
+    }
+
+    fun removerProduto(produtoCarrinho: ProdutoCarrinho) {
+        val produtos = this.produtos.toMutableList()
+        produtos.remove(produtoCarrinho)
+        this.produtos = produtos
     }
 }

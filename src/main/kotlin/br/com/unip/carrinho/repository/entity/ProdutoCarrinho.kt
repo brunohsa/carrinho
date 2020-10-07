@@ -1,15 +1,21 @@
 package br.com.unip.carrinho.repository.entity
 
+import org.springframework.data.mongodb.core.mapping.DBRef
+
 class ProdutoCarrinho {
 
-    var produto: Produto? = null
+    @DBRef
+    lateinit var produto: Produto
 
-    var quantidade: Long? = 0
+    var observacoes: String? = ""
+
+    var quantidade: Long = 0
 
     constructor()
 
-    constructor(produto: Produto?, quantidade: Long?) {
+    constructor(produto: Produto, observacoes: String?, quantidade: Long) {
         this.produto = produto
+        this.observacoes = observacoes
         this.quantidade = quantidade
     }
 }

@@ -1,11 +1,17 @@
 package br.com.unip.carrinho.service
 
-import br.com.unip.carrinho.dto.CarrinhoDTO
 import br.com.unip.carrinho.dto.AdicionarProdutoCarrinhoDTO
+import br.com.unip.carrinho.dto.CarrinhoDTO
 
 interface ICarrinhoService {
 
     fun criar(): String
 
-    fun adicionarProduto(idCarrinho: String?, dto: AdicionarProdutoCarrinhoDTO): CarrinhoDTO
+    fun buscar(): CarrinhoDTO
+
+    fun adicionarProduto(dto: AdicionarProdutoCarrinhoDTO): CarrinhoDTO
+
+    fun removerProduto(idProduto: String)
+
+    fun finalizar(id: String)
 }

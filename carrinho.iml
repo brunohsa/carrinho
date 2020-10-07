@@ -3,9 +3,9 @@
   <component name="AutoImportedSourceRoots">
     <option name="directories">
       <list>
-        <option value="$MODULE_DIR$/src/main/kotlin" />
-        <option value="$MODULE_DIR$/src/test/java" />
-        <option value="$MODULE_DIR$/src/test/kotlin" />
+        <option value="C:\workspace\carrinho/src/main/kotlin" />
+        <option value="C:\workspace\carrinho/src/test/java" />
+        <option value="C:\workspace\carrinho/src/test/kotlin" />
         <option value="src/main/kotlin" />
       </list>
     </option>
