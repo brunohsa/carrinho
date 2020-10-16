@@ -1,14 +1,5 @@
 package br.com.unip.carrinho.dto
 
-class ItemDTO {
+import java.math.BigDecimal
 
-    var produto: String
-    var observacoes: String? = ""
-    var quantidade: Long = 0
-
-    constructor(produto: String, observacoes: String?, quantidade: Long) {
-        this.produto = produto
-        this.observacoes = observacoes
-        this.quantidade = quantidade
-    }
-}
+class ItemDTO(val id: String, val nome: String, val observacoes: String?, val quantidade: Long, val valor: BigDecimal)

@@ -9,7 +9,7 @@ interface ICarrinhoService {
 
     fun buscar(): CarrinhoDTO
 
-    fun adicionarProduto(dto: AdicionarProdutoCarrinhoDTO): CarrinhoDTO
+    fun adicionarProduto(dto: AdicionarProdutoCarrinhoDTO, cardapioId: String): CarrinhoDTO
 
     fun removerProduto(idProduto: String)
 

@@ -5,180 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="60785265-7743-4b00-8f7b-94500422d85a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/carrinho.iml" beforeDir="false" afterPath="$PROJECT_DIR$/carrinho.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/domain/CardapioDomain.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/domain/ProdutoDomain.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/domain/campos/CampoMonetario.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/domain/campos/CampoNumerico.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/domain/campos/CampoObrigatorio.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/domain/campos/CampoOpcional.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/domain/campos/CampoTamanhoLimite.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/domain/campos/Categoria.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/domain/campos/Data.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/domain/campos/DataPassada.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/domain/campos/Descricao.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/domain/campos/ICampo.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/domain/campos/Imagem.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/domain/campos/Nome.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/domain/campos/Valor.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/AdicionarProdutoCarrinhoDTO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/AdicionarProdutoCarrinhoDTO.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/CadastroDTO.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/CarrinhoDTO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/CarrinhoDTO.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/PessoaDTO.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/ProdutoCardapioDTO.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/ProdutoCarrinhoDTO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/ProdutoCarrinhoDTO.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/ProdutoDTO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/ProdutoDTO.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/exception/CadastroException.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/exception/CampoNumericoException.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/exception/CampoNumericoException.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/exception/CampoObrigatorioException.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/exception/CampoObrigatorioException.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/exception/DataPassadaException.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/ItemDTO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/ItemDTO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/PedidoDTO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/PedidoDTO.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/exception/ECodigoErro.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/exception/ECodigoErro.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/exception/HandlerException.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/exception/HandlerException.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/exception/ParametroInvalidoException.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/exception/ParametroInvalidoException.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/ICarrinhoRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/ICarrinhoRepository.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Carrinho.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Carrinho.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Item.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Item.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Pedido.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Pedido.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Produto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Produto.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/ProdutoCarrinho.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/ProdutoCarrinho.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/enums/EStatusCarrinho.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/enums/EStatusCarrinho.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/AutenticacaoService.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/CadastroService.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/CardapioService.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/enums/EStatusPedido.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/enums/EStatusPedido.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/security/filter/CorsFilterCustom.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/security/filter/CorsFilterCustom.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/CarrinhoService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/CarrinhoService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/IAutenticacaoService.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/ICadastroService.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/ICardapioService.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/ICarrinhoService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/ICarrinhoService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/IPedidoService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/IPedidoService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/IProdutoService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/IProdutoService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/IRestService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/IRestService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/PedidoService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/PedidoService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/ProdutoService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/ProdutoService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/RestService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/RestService.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/CarrinhoWS.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/CarrinhoWS.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/request/CardapioRequest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/request/ProdutoRequest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/request/ProdutoRequest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/CarrinhoResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/CarrinhoResponse.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/Erro.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/ItemCarrinhoResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/ItemCarrinhoResponse.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/ProdutoResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/ProdutoResponse.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/Response.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/PedidoWS.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/PedidoConsumidorWS.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/ItemResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/ItemResponse.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/PedidoResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/PedidoResponse.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/cadastro-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/cadastro.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/carrinho.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/carrinho-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/carrinho-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/StartApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/StartApplicationKt.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/domain/CardapioDomain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/domain/ProdutoDomain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/domain/campos/CampoMonetario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/domain/campos/CampoNumerico.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/domain/campos/CampoObrigatorio.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/domain/campos/CampoOpcional.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/domain/campos/CampoTamanhoLimite.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/domain/campos/Categoria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/domain/campos/Data.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/domain/campos/DataPassada.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/domain/campos/Descricao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/domain/campos/ICampo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/domain/campos/Imagem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/domain/campos/Nome.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/domain/campos/Valor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/dto/CardapioDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/dto/ProdutoDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/exception/CadastroException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/exception/CampoNumericoException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/exception/CampoObrigatorioException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/exception/DataPassadaException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/exception/ECodigoErro.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/exception/HandlerException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/exception/ParametroInvalidoException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/repository/ICardapioRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/repository/IProdutoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/repository/entity/Cardapio.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/repository/entity/Produto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/repository/entity/enums/ECategoriaProduto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/security/IJwtTokenValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/security/JwtTokenValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/security/SecurityConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/security/TokenData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/security/filter/CorsFilterCustom.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/security/filter/JWTAuthenticationFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/security/util/AutenthicationUtil$Companion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/security/util/AutenthicationUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/security/util/TokenUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/service/CadastroService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/service/CardapioService$adicionarProduto$cardapio$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/service/CardapioService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/service/ICadastroService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/service/ICardapioService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/service/IProdutoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/service/IRestService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/service/ProdutoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/service/RestService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/webservice/CardapioWS.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/webservice/model/request/CardapioRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/webservice/model/request/ProdutoRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/webservice/model/response/CardapioResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/webservice/model/response/Erro.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/webservice/model/response/ProdutoResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/cardapio/webservice/model/response/Response.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/StartApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/StartApplicationKt.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/domain/CardapioDomain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/domain/ProdutoDomain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/domain/campos/CampoMonetario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/domain/campos/CampoNumerico.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/domain/campos/CampoObrigatorio.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/domain/campos/CampoOpcional.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/domain/campos/CampoTamanhoLimite.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/domain/campos/Categoria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/domain/campos/Data.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/domain/campos/DataPassada.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/domain/campos/Descricao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/domain/campos/ICampo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/domain/campos/Imagem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/domain/campos/Nome.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/domain/campos/Valor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/dto/AdicionarProdutoCarrinhoDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/dto/CarrinhoDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/dto/ProdutoCarrinhoDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/dto/ProdutoDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/exception/CadastroException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/exception/CampoNumericoException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/exception/CampoObrigatorioException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/exception/DataPassadaException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/exception/ECodigoErro.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/exception/HandlerException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/exception/ParametroInvalidoException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/repository/ICarrinhoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/repository/entity/Carrinho.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/repository/entity/Produto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/repository/entity/ProdutoCarrinho.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/repository/entity/enums/EStatusCarrinho.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/security/IJwtTokenValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/security/JwtTokenValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/security/SecurityConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/security/TokenData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/security/filter/CorsFilterCustom.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/security/filter/JWTAuthenticationFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/security/util/AutenthicationUtil$Companion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/security/util/AutenthicationUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/security/util/TokenUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/service/CadastroService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/service/CardapioService$adicionarProduto$carrinho$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/service/CardapioService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/service/ICadastroService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/service/ICardapioService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/service/IProdutoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/service/IRestService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/service/ProdutoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/service/RestService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/webservice/CarrinhoWS.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/webservice/model/request/CardapioRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/webservice/model/request/ProdutoRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/webservice/model/response/CarrinhoResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/webservice/model/response/Erro.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/webservice/model/response/ItemCarrinhoResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/webservice/model/response/ProdutoResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/webservice/model/response/Response.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -191,28 +45,58 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/security/filter/AuthenticationFilter.kt">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/PedidoFornecedorWS.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="31" column="41" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="70" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="69" selection-start-line="17" selection-start-column="69" selection-end-line="17" selection-end-column="69" />
+            <state relative-caret-position="510">
+              <caret line="45" column="62" selection-start-line="45" selection-start-column="62" selection-end-line="45" selection-end-column="62" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/security/SecurityConfiguration.kt">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/PedidoResponse.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+            <state relative-caret-position="425">
+              <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="78" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/security/filter/CorsFilterCustom.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="332">
+              <caret line="59" column="68" selection-start-line="59" selection-start-column="68" selection-end-line="59" selection-end-column="68" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/PedidoService.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1275">
+              <caret line="99" column="17" selection-start-line="99" selection-start-column="17" selection-end-line="99" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/PedidoDTO.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
+              <folding>
+                <element signature="e#34#92#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/PedidoConsumidorWS.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="663">
+              <caret line="55" column="126" selection-start-line="55" selection-start-column="126" selection-end-line="55" selection-end-column="126" />
             </state>
           </provider>
         </entry>
@@ -232,11 +116,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>@Valu</find>
-      <find>\${</find>
-      <find>Perfil</find>
-      <find>::class.qualifiedName</find>
-      <find>stra</find>
       <find>tempo.expiracao</find>
       <find>@Value(</find>
       <find>LoginWS</find>
@@ -261,6 +140,12 @@
       <find>'</find>
       <find>PessoaDTO</find>
       <find>CadastroDTO</find>
+      <find>RestService'</find>
+      <find>map</find>
+      <find>criter</find>
+      <find>orElseThrow</find>
+      <find>throw</find>
+      <find>LocalDate</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -269,57 +154,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio/dto/ProdutoDTO.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio/webservice/model/response/CardapioResponse.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio/webservice/model/response/ProdutoResponse.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio/repository/ICardapioRepository.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio/repository/entity/Produto.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio/repository/entity/Cardapio.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio/security/configuration/DataSourceConfiguration.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio/security/filter/JWTAuthenticationFilter.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio/security/JWTValidation.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio/security/IJwtTokenValidator.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio/security/util/TokenUtil.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio/security/TokenData.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio/security/JwtTokenValidator.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio/security/util/AutenthicationUtil.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio/webservice/CardapioWS.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio/service/ICardapioService.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio/service/IRestService.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio/service/RestService.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio/service/CardapioService.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio/service/CadastroService.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/CadastroService.kt" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/CardapioWS.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/enums/ECategoriaProduto.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/enums/EStatusCarrinho.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/request/ProdutoRequest.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Carrinho.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Produto.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/ProdutoCarrinho.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/ProdutoDTO.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/ItenmCarrinhoResponse.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/ItemCarrinhoResponse.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/ProdutoResponse.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/CarrinhoDTO.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/CarrinhoResponse.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/ICarrinhoRepository.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/CadastroDTO.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/PessoaDTO.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/IAutenticacaoService.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/AutenticacaoService.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/IProdutoService.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/ProdutoService.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/CarrinhoWS.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/ProdutoCarrinhoDTO.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/CardapioService.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/ICardapioService.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/CarrinhoService.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/security/filter/AuthenticationFilter.kt" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/security/SecurityConfiguration.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/ProdutoCardapioDTO.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/security/filter/AuthenticationFilter.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/ItemDTO.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Item.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/ItemResponse.kt" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/IRestService.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/RestService.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/ICadastroService.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/CadastroService.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Cliente.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/ClienteResponse.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/ClienteDTO.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/PessoaFisicaDTO.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/enums/EStatusPedido.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/PedidoWS.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Categoria.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Produto.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/IProdutoService.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/ICardapioRepository.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Pedido.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/ICarrinhoService.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/ICardapioService.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Carrinho.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/exception/CarrinhoPossuiProdutosDeOutroClienteException.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/exception/CarrinhoPossuiProdutosDeOutroFornecedorException.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/CardapioService.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/CarrinhoDTO.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/CarrinhoService.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Cardapio.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/CarrinhoWS.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/ProdutoService.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/IPedidoService.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/FiltroPedidoDTO.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/exception/ECodigoErro.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/exception/DataPassadaException.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/exception/DataNaoPodeSerRetroativa.kt" />
+        <option value="$PROJECT_DIR$/src/main/resources/messages.properties" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/PedidoDTO.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/PedidoService.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/PedidoConsumidorWS.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/PedidoFornecedorWS.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/PedidoResponse.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/security/filter/CorsFilterCustom.kt" />
       </list>
     </option>
   </component>
@@ -330,7 +215,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="43" />
     <option name="y" value="25" />
     <option name="width" value="1323" />
@@ -343,87 +228,10 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="carrinho" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carrinho" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carrinho" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carrinho" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carrinho" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carrinho" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carrinho" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carrinho" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carrinho" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carrinho" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="carrinho" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carrinho" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carrinho" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="carrinho" type="462c0819:PsiDirectoryNode" />
-              <item name="webservice" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carrinho" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carrinho" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="carrinho" type="462c0819:PsiDirectoryNode" />
-              <item name="webservice" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carrinho" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carrinho" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="carrinho" type="462c0819:PsiDirectoryNode" />
-              <item name="webservice" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="response" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carrinho" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carrinho" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1595438865593" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1602298490868" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio/domain" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -433,11 +241,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="br.com.unip.carrinho.exception" />
       <recent name="br.com.unip.carrinho.dto" />
-      <recent name="br.com.unip.carrinho.webservice.model.response" />
-      <recent name="br.com.unip.carrinho.repository.entity" />
-      <recent name="br.com.unip.cardapio.webservice.model.response" />
-      <recent name="br.com.unip.cardapio.domain.campos" />
+      <recent name="br.com.unip.carrinho.repository" />
+      <recent name="br.com.unip.carrinho.service" />
+      <recent name="br.com.unip.carrinho.webservice" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="br.com.unip.cardapio.domain.completo" />
@@ -447,11 +255,11 @@
       <recent name="br.com.unip.cardapio.domain.campos.completo" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity" />
       <recent name="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service" />
       <recent name="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho" />
       <recent name="$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio/service" />
       <recent name="$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio/security" />
-      <recent name="$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -528,7 +336,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="43" y="25" width="1323" height="743" extended-state="6" />
+    <frame x="43" y="25" width="1323" height="743" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
@@ -536,18 +344,18 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.33750978" />
+      <window_info content_ui="combo" id="Project" order="5" weight="0.34299138" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info id="DB Browser" order="7" weight="0.32980832" />
-      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.49966952" weight="0.3262987" />
-      <window_info anchor="bottom" id="Version Control" order="1" weight="0.32947233" />
+      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.49966952" weight="0.3257329" />
+      <window_info anchor="bottom" id="Version Control" order="1" weight="0.32899022" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5009914" side_tool="true" weight="0.3989704" />
       <window_info anchor="bottom" id="Messages" order="3" sideWeight="0.49966952" weight="0.39576548" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="DB Execution Console" order="5" />
-      <window_info anchor="bottom" id="Find" order="6" visible="true" weight="0.32736155" />
+      <window_info anchor="bottom" id="Find" order="6" weight="0.40553746" />
       <window_info anchor="bottom" id="Run" order="7" />
-      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.4990086" weight="0.35667753" />
+      <window_info active="true" anchor="bottom" id="Debug" order="8" sideWeight="0.4990086" visible="true" weight="0.17589577" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="11" />
@@ -568,21 +376,22 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.33202818" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.34299138" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info id="DB Browser" order="7" weight="0.32980832" />
-      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.49966952" weight="0.3262987" />
-      <window_info anchor="bottom" id="Version Control" order="1" weight="0.32947233" />
+      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.49966952" weight="0.3257329" />
+      <window_info anchor="bottom" id="Version Control" order="1" weight="0.32899022" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5009914" side_tool="true" weight="0.3989704" />
-      <window_info active="true" anchor="bottom" id="Messages" order="3" sideWeight="0.49966952" visible="true" weight="0.39576548" />
+      <window_info anchor="bottom" id="Messages" order="3" sideWeight="0.49966952" weight="0.39576548" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="DB Execution Console" order="5" />
-      <window_info anchor="bottom" id="Find" order="6" weight="0.32736155" />
+      <window_info anchor="bottom" id="Find" order="6" weight="0.40553746" />
       <window_info anchor="bottom" id="Run" order="7" />
-      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.4990086" weight="0.35667753" />
+      <window_info active="true" anchor="bottom" id="Debug" order="8" sideWeight="0.4990086" visible="true" weight="0.17589577" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Theme Preview" order="0" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Palette&#9;" order="2" />
@@ -628,162 +437,64 @@
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>SecurityContextHolder.getContext().authentication.name</expression-string>
-        <language-id>kotlin</language-id>
-        <custom-info>import org.springframework.security.core.context.SecurityContextHolder</custom-info>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>SecurityContextHolder.getContext().authentication</expression-string>
-        <language-id>kotlin</language-id>
-        <custom-info>import org.springframework.security.core.context.SecurityContextHolder</custom-info>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>SecurityContextHolder.getContext().getAuthentication()</expression-string>
+        <expression-string>sequenceService.getSequenceNumeroPedido(&quot;$PEDIDO_SEQUENCE-${carrinho.fornecedorUUID}&quot;)</expression-string>
         <language-id>kotlin</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>jwsClaims.body.get(&quot;scopes&quot;, List::class.java)</expression-string>
+        <expression-string>map(id)</expression-string>
         <language-id>kotlin</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>jwsClaims.body.subject</expression-string>
+        <expression-string>(request as HttpServletRequest).getHeaders(&quot;token&quot;)</expression-string>
         <language-id>kotlin</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>jwsClaims.body.issuer</expression-string>
+        <expression-string>(request as HttpServletRequest).getHeaders(&quot;&quot;)</expression-string>
         <language-id>kotlin</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>System.getProperties()</expression-string>
+        <expression-string>request.getHeader(TOKEN_TAG)</expression-string>
         <language-id>kotlin</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>System.getProperties()&quot;)</expression-string>
+        <expression-string>request as HttpServletRequest</expression-string>
         <language-id>kotlin</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>System.getProperty(&quot;autenticacao.key&quot;)</expression-string>
+        <expression-string>request</expression-string>
+        <language-id>kotlin</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>TokenUtil(config).getAuthentication(request as HttpServletRequest)</expression-string>
+        <language-id>kotlin</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>TokenUtil(config)</expression-string>
         <language-id>kotlin</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/cardapio/security/configuration/DataSourceConfiguration.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/security/IJwtTokenValidator.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/security/filter/CorsFilterCustom.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/security/filter/JWTAuthenticationFilter.kt" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib-common/1.3.50/kotlin-stdlib-common-1.3.50-sources.jar!/kotlin/text/Strings.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="219" column="32" selection-start-line="219" selection-start-column="32" selection-end-line="219" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/security/TokenData.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/security/util/AutenthicationUtil.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/IRestService.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.6.RELEASE/spring-web-5.1.6.RELEASE.jar!/org/springframework/web/client/RestOperationsExtensionsKt.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="89" selection-start-line="15" selection-start-column="89" selection-end-line="15" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/RestService.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="34" column="67" selection-start-line="34" selection-start-column="67" selection-end-line="34" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="24" column="56" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/enums/EStatusCarrinho.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/request/ProdutoRequest.kt">
+    <entry file="jar://$MAVEN_REPOSITORY$/br/com/unip/cardapio/autenticacao-lib/1.0-SNAPSHOT/autenticacao-lib-1.0-SNAPSHOT.jar!/br/com/unip/autenticacaolib/dto/DadosUsuarioLogado.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="6" column="47" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/IProdutoRepository.kt" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib-common/1.3.50/kotlin-stdlib-common-1.3.50-sources.jar!/generated/_Collections.kt">
+    <entry file="jar://$MAVEN_REPOSITORY$/br/com/unip/cardapio/autenticacao-lib/1.0-SNAPSHOT/autenticacao-lib-1.0-SNAPSHOT.jar!/br/com/unip/autenticacaolib/util/AuthenticationUtil.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="1790" column="34" selection-start-line="1790" selection-start-column="34" selection-end-line="1790" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/security/JwtTokenValidator.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/CarrinhoDTO.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Carrinho.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="19" />
-          <folding>
-            <element signature="e#48#223#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/CarrinhoResponse.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-          <folding>
-            <element signature="e#56#197#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/ICarrinhoRepository.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
-          <folding>
-            <element signature="e#41#162#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/security/util/TokenUtil.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/IAutenticacaoService.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/StartApplication.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        <state relative-caret-position="187">
+          <caret line="11" column="89" lean-forward="true" selection-start-line="11" selection-start-column="89" selection-end-line="11" selection-end-column="89" />
         </state>
       </provider>
     </entry>
@@ -794,63 +505,119 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/ItemCarrinhoResponse.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        <state relative-caret-position="306">
+          <caret line="18" column="61" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/ProdutoResponse.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/IRestService.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="21" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="21" />
+        <state relative-caret-position="153">
+          <caret line="9" column="104" selection-start-line="9" selection-start-column="104" selection-end-line="9" selection-end-column="104" />
           <folding>
-            <element signature="e#56#169#0" expanded="true" />
+            <element signature="e#38#118#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/ProdutoDTO.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/ICadastroService.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="65" selection-start-line="6" selection-start-column="65" selection-end-line="6" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Pagamento.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="16" />
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/ProdutoCarrinhoDTO.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Cliente.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="5" />
+        <state relative-caret-position="34">
+          <caret line="2" column="53" lean-forward="true" selection-start-line="2" selection-start-column="53" selection-end-line="2" selection-end-column="53" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/ICardapioService.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/CarrinhoWS.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="31" column="42" lean-forward="true" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/ICarrinhoService.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/RestService.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/ProdutoCarrinho.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/ClienteResponse.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/ClienteDTO.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/PessoaFisicaDTO.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Produto.kt">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/IProdutoService.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Categoria.kt" />
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/ICardapioRepository.kt">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="15" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="15" />
+          <caret line="10" column="65" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/ICardapioService.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="57" lean-forward="true" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.6.RELEASE/spring-web-5.1.6.RELEASE.jar!/org/springframework/http/HttpStatus.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/exception/CarrinhoPossuiProdutosDeOutroFornecedorException.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="54" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/exception/CarrinhoBaseException.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -861,59 +628,222 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/domain/campos/Data.kt" />
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Carrinho.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/CardapioService.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="12" column="123" selection-start-line="12" selection-start-column="123" selection-end-line="12" selection-end-column="123" />
+          <folding>
+            <element signature="e#38#277#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/CadastroService.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="4" selection-start-line="4" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/CarrinhoDTO.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/ICarrinhoService.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Cardapio.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/CarrinhoWS.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="43" column="45" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/ICarrinhoRepository.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/exception/CampoNumericoException.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/ProdutoService.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/CarrinhoService.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/IPedidoService.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="55" selection-start-line="12" selection-start-column="55" selection-end-line="12" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Pedido.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="31" column="18" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/messages.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="3" selection-start-line="17" selection-end-line="17" selection-end-column="3" />
+        <state relative-caret-position="340">
+          <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/exception/DataNaoPodeSerRetroativa.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
+          <folding>
+            <element signature="e#40#173#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/exception/ECodigoErro.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+        <state relative-caret-position="341">
+          <caret line="24" column="37" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/domain/campos/DataPassada.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/CarrinhoService.kt">
+    <entry file="jar://$PROJECT_DIR$/../../../javas/jdk-11.0.2/lib/src.zip!/java.base/java/time/ZoneOffset.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="29" column="17" lean-forward="true" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
-          <folding>
-            <element signature="e#38#975#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="159">
+          <caret line="150" column="35" selection-start-line="150" selection-start-column="35" selection-end-line="150" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/CadastroService.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/CardapioService.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/AutenticacaoService.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/ProdutoCardapioDTO.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/PessoaDTO.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/CadastroDTO.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/domain/campos/Nome.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/domain/CardapioDomain.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/request/CardapioRequest.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/security/filter/AuthenticationFilter.kt">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.6.RELEASE/spring-web-5.1.6.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="31" column="41" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="70" />
+        <state relative-caret-position="250">
+          <caret line="107" selection-start-line="107" selection-end-line="107" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-mongodb/2.1.6.RELEASE/spring-data-mongodb-2.1.6.RELEASE.jar!/org/springframework/data/mongodb/core/query/Criteria.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="69" selection-start-line="17" selection-start-column="69" selection-end-line="17" selection-end-column="69" />
+        <state relative-caret-position="159">
+          <caret line="121" column="20" selection-start-line="121" selection-start-column="20" selection-end-line="121" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/FiltroPedidoDTO.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/enums/EStatusPedido.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/security/SecurityConfiguration.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        <state relative-caret-position="119">
+          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/br/com/unip/cardapio/autenticacao-lib/1.0-SNAPSHOT/autenticacao-lib-1.0-SNAPSHOT.jar!/br/com/unip/autenticacaolib/util/TokenUtil.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/security/filter/AuthenticationFilter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="33" column="29" lean-forward="true" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/PedidoFornecedorWS.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="45" column="62" selection-start-line="45" selection-start-column="62" selection-end-line="45" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/PedidoService.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="99" column="17" selection-start-line="99" selection-start-column="17" selection-end-line="99" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/PedidoDTO.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#34#92#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/PedidoConsumidorWS.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="55" column="126" selection-start-line="55" selection-start-column="126" selection-end-line="55" selection-end-column="126" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/security/filter/CorsFilterCustom.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="59" column="68" selection-start-line="59" selection-start-column="68" selection-end-line="59" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/PedidoResponse.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="78" />
         </state>
       </provider>
     </entry>

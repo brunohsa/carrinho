@@ -5,6 +5,8 @@ import br.com.unip.carrinho.dto.AdicionarProdutoCarrinhoDTO
 import br.com.unip.carrinho.dto.CarrinhoDTO
 import br.com.unip.carrinho.dto.ProdutoCarrinhoDTO
 import br.com.unip.carrinho.dto.ProdutoDTO
+import br.com.unip.carrinho.exception.CarrinhoBaseException
+import br.com.unip.carrinho.exception.CarrinhoPossuiProdutosDeOutroFornecedorException
 import br.com.unip.carrinho.exception.ClienteJaPossuiCarrinhoAtivoException
 import br.com.unip.carrinho.exception.ECodigoErro.CARRINHO_NAO_ENCONTRADO
 import br.com.unip.carrinho.exception.ECodigoErro.PRODUTO_NAO_ENCONTRADO
@@ -19,7 +21,8 @@ import java.math.BigDecimal
 
 @Service
 class CarrinhoService(val carrinhoRepository: ICarrinhoRepository,
-                      val produtoService: IProdutoService) : ICarrinhoService {
+                      val produtoService: IProdutoService,
+                      val cardapioService: ICardapioService) : ICarrinhoService {
 
     override fun criar(): String {
         val uuid = this.getCadastroUUID()
@@ -43,21 +46,40 @@ class CarrinhoService(val carrinhoRepository: ICarrinhoRepository,
         carrinhoRepository.save(carrinho)
     }
 
-    override fun adicionarProduto(dto: AdicionarProdutoCarrinhoDTO): CarrinhoDTO {
+    override fun adicionarProduto(dto: AdicionarProdutoCarrinhoDTO, cardapioId: String): CarrinhoDTO {
         val carrinho = this.buscarCarrinho()
+
+        this.validarEAdicionarFornecedorUUID(carrinho, cardapioId)
 
         val produtos = carrinho.produtos.toMutableList()
         val produtoCarrinho = produtos.find { p -> p.produto.id == dto.id }
         if (produtoCarrinho != null) {
-            produtoCarrinho.quantidade = produtoCarrinho.quantidade.plus(dto.quantidade)
+            this.atualizarQuantidadeProduto(produtoCarrinho, dto.quantidade)
         } else {
-            val produto = produtoService.buscarProduto(dto.id)
-            val carrinhoProduto = ProdutoCarrinho(produto, dto.observacoes, dto.quantidade)
-            produtos.add(carrinhoProduto)
+            this.adicionarNovoProduto(produtos, dto, cardapioId)
         }
         carrinho.produtos = produtos
         carrinhoRepository.save(carrinho)
         return this.map(carrinho)
+    }
+
+    private fun atualizarQuantidadeProduto(produtoCarrinho: ProdutoCarrinho, quantidade: Long) {
+        produtoCarrinho.quantidade = produtoCarrinho.quantidade.plus(quantidade)
+    }
+
+    private fun adicionarNovoProduto(produtos: MutableList<ProdutoCarrinho>, dto: AdicionarProdutoCarrinhoDTO, cardapioId: String) {
+        val produto = produtoService.buscarProduto(dto.id, cardapioId)
+        val carrinhoProduto = ProdutoCarrinho(produto, dto.observacoes, dto.quantidade)
+        produtos.add(carrinhoProduto)
+    }
+
+    private fun validarEAdicionarFornecedorUUID(carrinho: Carrinho, cardapioId: String) {
+        val fornecedorUUID = cardapioService.buscarUUIDFornecedor(cardapioId)
+        if (carrinho.fornecedorUUID == null) {
+            carrinho.fornecedorUUID = fornecedorUUID
+        } else if (carrinho.fornecedorUUID != fornecedorUUID) {
+            throw CarrinhoPossuiProdutosDeOutroFornecedorException()
+        }
     }
 
     override fun removerProduto(idProduto: String) {
@@ -65,6 +87,11 @@ class CarrinhoService(val carrinhoRepository: ICarrinhoRepository,
         val produtoCarrinho = carrinho.produtos.find { pc -> pc.produto.id == idProduto }
                 ?: throw NaoEncontradoException(PRODUTO_NAO_ENCONTRADO)
         carrinho.removerProduto(produtoCarrinho)
+
+        if (carrinho.produtos.isEmpty()) {
+            carrinho.fornecedorUUID = null
+        }
+
         carrinhoRepository.save(carrinho)
     }
 
@@ -78,7 +105,7 @@ class CarrinhoService(val carrinhoRepository: ICarrinhoRepository,
         val produtos = this.map(carrinho.produtos)
         val valorTotal = this.somarValorTotal(produtos)
 
-        return CarrinhoDTO(carrinho.id, produtos, valorTotal, carrinho.dataCriacao)
+        return CarrinhoDTO(carrinho.id, produtos, valorTotal, carrinho.dataCriacao, carrinho.fornecedorUUID)
     }
 
     private fun map(produtosCarrinho: List<ProdutoCarrinho>): List<ProdutoCarrinhoDTO> {

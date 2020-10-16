@@ -4,6 +4,7 @@ import br.com.unip.carrinho.dto.AdicionarProdutoCarrinhoDTO
 import br.com.unip.carrinho.dto.CarrinhoDTO
 import br.com.unip.carrinho.dto.ProdutoCarrinhoDTO
 import br.com.unip.carrinho.service.ICarrinhoService
+import br.com.unip.carrinho.service.IProdutoService
 import br.com.unip.carrinho.webservice.model.request.ProdutoRequest
 import br.com.unip.carrinho.webservice.model.response.CarrinhoCriadoResponse
 import br.com.unip.carrinho.webservice.model.response.CarrinhoResponse
@@ -21,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping(value = ["/v1/carrinhos"])
-class CarrinhoWS(val carrinhoService: ICarrinhoService) {
+class CarrinhoWS(val carrinhoService: ICarrinhoService, val prod: IProdutoService) {
 
     @PostMapping(value = ["/criar"])
     fun criarCardapio(): ResponseEntity<CarrinhoCriadoResponse> {
@@ -35,11 +36,12 @@ class CarrinhoWS(val carrinhoService: ICarrinhoService) {
         return ResponseEntity.ok(this.map(carrinho))
     }
 
-    @PutMapping(value = ["/produto/{id_produto}/adicionar"])
-    fun adicionarProduto(@PathVariable(value = "id_produto") idProduto: String,
-                         @RequestBody request: ProdutoRequest): ResponseEntity<CarrinhoResponse> {
+    @PutMapping(value = ["/cardapio/{id_cardapio}/produto/{id_produto}/adicionar"])
+    fun adicionarProduto(@PathVariable(value = "id_cardapio") idCardapio: String,
+                         @PathVariable(value = "id_produto") idProduto: String,
+                         @RequestBody request: ProdutoRequest) : ResponseEntity<CarrinhoResponse> {
         val produto = AdicionarProdutoCarrinhoDTO(idProduto, request.observacoes, request.quantidade)
-        val dto = carrinhoService.adicionarProduto(produto)
+        val dto = carrinhoService.adicionarProduto(produto, idCardapio)
 
         return ResponseEntity.ok(this.map(dto))
     }

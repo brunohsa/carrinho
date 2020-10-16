@@ -14,8 +14,11 @@ class Produto {
 
     var valor: BigDecimal
 
-    constructor(nome: String, valor: BigDecimal) {
+    var cardapioId: String
+
+    constructor(nome: String, valor: BigDecimal, cardapioId: String) {
         this.nome = nome
         this.valor = valor
+        this.cardapioId = cardapioId
     }
 }

@@ -15,6 +15,8 @@ class Pedido {
     @Id
     lateinit var id: String
 
+    var fornecedorUUID: String
+
     var cadastroUUID: String
 
     var numero: String
@@ -29,11 +31,15 @@ class Pedido {
 
     var dataPedido = LocalDateTime.now()
 
-    constructor(cadastroUUID: String, numero: String, itens: List<Item>, valor: BigDecimal) {
+    var cliente: Cliente
+
+    constructor(fornecedorUUID: String, cadastroUUID: String, numero: String, itens: List<Item>, valor: BigDecimal, cliente: Cliente) {
+        this.fornecedorUUID = fornecedorUUID
         this.cadastroUUID = cadastroUUID
         this.numero = numero
         this.itens = itens
         this.valor = valor
+        this.cliente = cliente
     }
 
     fun paraPendentePreparacao() {
