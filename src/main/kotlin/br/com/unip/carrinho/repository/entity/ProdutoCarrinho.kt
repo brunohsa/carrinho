@@ -1,10 +1,7 @@
 package br.com.unip.carrinho.repository.entity
 
-import org.springframework.data.mongodb.core.mapping.DBRef
-
 class ProdutoCarrinho {
 
-    @DBRef
     lateinit var produto: Produto
 
     var observacoes: String? = ""

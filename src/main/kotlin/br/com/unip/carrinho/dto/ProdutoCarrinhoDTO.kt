@@ -14,6 +14,4 @@ class ProdutoCarrinhoDTO {
         this.observacoes = observacoes
         this.quantidade = quantidade
     }
-
-
 }

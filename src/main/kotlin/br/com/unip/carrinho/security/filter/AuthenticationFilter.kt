@@ -9,6 +9,7 @@ import br.com.unip.carrinho.exception.ECodigoErro
 import br.com.unip.carrinho.exception.ECodigoErro.TOKEN_EXPIRADO
 import br.com.unip.carrinho.exception.ECodigoErro.TOKEN_INVALIDO
 import br.com.unip.carrinho.webservice.model.response.erro.Erro
+import br.com.unip.carrinho.webservice.model.response.erro.ResponseError
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.context.MessageSource
@@ -53,7 +54,7 @@ class AuthenticationFilter(val messageSource: MessageSource, val env: Environmen
             val httpResponse = response as HttpServletResponse
 
             val erro = getErro(codigo)
-            httpResponse.writer.write(ObjectMapper().writeValueAsString(erro))
+            httpResponse.writer.write(ObjectMapper().writeValueAsString(ResponseError(erro)))
             httpResponse.status = httpStatus.value()
             httpResponse.contentType = MediaType.APPLICATION_JSON_VALUE
         }

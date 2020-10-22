@@ -24,19 +24,25 @@ class CarrinhoService(val carrinhoRepository: ICarrinhoRepository,
                       val produtoService: IProdutoService,
                       val cardapioService: ICardapioService) : ICarrinhoService {
 
-    override fun criar(): String {
+    override fun criar(): CarrinhoDTO {
         val uuid = this.getCadastroUUID()
-        if (carrinhoRepository.buscarCarrinho(uuid).isPresent) {
-            throw ClienteJaPossuiCarrinhoAtivoException()
+        val carrinhoPersistido = carrinhoRepository.buscarCarrinho(uuid)
+        if (carrinhoPersistido.isPresent) {
+            return map(carrinhoPersistido.get())
         }
         val carrinho = Carrinho(uuid, EStatusCarrinho.ATIVO)
         carrinhoRepository.save(carrinho)
 
-        return carrinho.id
+        return map(carrinho)
     }
 
     override fun buscar(): CarrinhoDTO {
         return map(this.buscarCarrinho())
+    }
+
+    override fun buscarPorFornecedor(uuidFornecedor: String): List<CarrinhoDTO> {
+        val carrinhos = carrinhoRepository.findByFornecedorUUIDAndStatus(uuidFornecedor)
+        return carrinhos.map { c -> this.map(c) }
     }
 
     override fun finalizar(id: String) {
@@ -91,7 +97,6 @@ class CarrinhoService(val carrinhoRepository: ICarrinhoRepository,
         if (carrinho.produtos.isEmpty()) {
             carrinho.fornecedorUUID = null
         }
-
         carrinhoRepository.save(carrinho)
     }
 

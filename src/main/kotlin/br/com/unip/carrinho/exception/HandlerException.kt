@@ -14,39 +14,35 @@ import org.springframework.web.bind.annotation.ExceptionHandler
 import java.util.Locale
 
 @ControllerAdvice
-class HandlerException {
+class HandlerException(val messageSource: MessageSource) {
 
-    @ControllerAdvice
-    class HandlerException(val messageSource: MessageSource) {
+    private val PT = "pt"
+    private val BR = "BR"
 
-        private val PT = "pt"
-        private val BR = "BR"
+    @ExceptionHandler(Throwable::class)
+    fun handlerErroInesperado(e: Throwable): ResponseEntity<ResponseError> {
+        val erro = getErro(ERRO_INESPERADO)
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ResponseError(erro))
+    }
 
-        @ExceptionHandler(Throwable::class)
-        fun handlerErroInesperado(e: Throwable): ResponseEntity<ResponseError> {
-            val erro = getErro(ERRO_INESPERADO)
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ResponseError(erro))
-        }
+    @ExceptionHandler(AccessDeniedException::class, AuthenticationCredentialsNotFoundException::class)
+    fun handlerAcessoNegado(e: Exception): ResponseEntity<ResponseError> {
+        val erro = getErro(ACESSO_NEGADO)
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(ResponseError(erro))
+    }
 
-        @ExceptionHandler(AccessDeniedException::class, AuthenticationCredentialsNotFoundException::class)
-        fun handlerAcessoNegado(e: Exception): ResponseEntity<ResponseError> {
-            val erro = getErro(ACESSO_NEGADO)
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(ResponseError(erro))
-        }
+    @ExceptionHandler(CarrinhoBaseException::class)
+    fun handlerCarrinhoException(e: CarrinhoBaseException): ResponseEntity<ResponseError> {
+        val erro = getErro(e.codigoErro)
+        return ResponseEntity.status(e.httpStatus.value()).body(ResponseError(erro))
+    }
 
-        @ExceptionHandler(CarrinhoBaseException::class)
-        fun handlerCarrinhoException(e: CarrinhoBaseException): ResponseEntity<ResponseError> {
-            val erro = getErro(e.codigoErro)
-            return ResponseEntity.status(e.httpStatus.value()).body(ResponseError(erro))
-        }
+    private fun getErro(erro: ECodigoErro): Erro {
+        return Erro(erro.codigo, getMensagem(erro))
+    }
 
-        private fun getErro(erro: ECodigoErro): Erro {
-            return Erro(erro.codigo, getMensagem(erro))
-        }
-
-        private fun getMensagem(codigoErro: ECodigoErro): String {
-            val local = Locale(PT, BR)
-            return messageSource.getMessage(codigoErro.codigo, null, local)
-        }
+    private fun getMensagem(codigoErro: ECodigoErro): String {
+        val local = Locale(PT, BR)
+        return messageSource.getMessage(codigoErro.codigo, null, local)
     }
 }

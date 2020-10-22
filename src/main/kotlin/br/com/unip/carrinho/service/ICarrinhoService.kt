@@ -5,9 +5,11 @@ import br.com.unip.carrinho.dto.CarrinhoDTO
 
 interface ICarrinhoService {
 
-    fun criar(): String
+    fun criar(): CarrinhoDTO
 
     fun buscar(): CarrinhoDTO
+
+    fun buscarPorFornecedor(uuidFornecedor: String): List<CarrinhoDTO>
 
     fun adicionarProduto(dto: AdicionarProdutoCarrinhoDTO, cardapioId: String): CarrinhoDTO
 

@@ -25,7 +25,6 @@ class CadastroService(val restService: IRestService) : ICadastroService {
         return restService.get(url, PessoaFisicaDTO::class, headers)
     }
 
-
     private fun getHeaderComApiKey(): LinkedMultiValueMap<String, String> {
         val headers = LinkedMultiValueMap<String, String>()
         headers.add(APIKEY_TAG, APIKEY_AUTENTICACAO)
