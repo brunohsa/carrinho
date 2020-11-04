@@ -8,5 +8,5 @@ interface IPedidoService {
 
     fun buscarPedidos(filtro: FiltroPedidoDTO, uuidCadastro: String, keyWhere: String): List<PedidoDTO>
 
-    fun buscarPedido(id: String): Pedido
+    fun buscarPedido(id: String, uuidCadastro: String): Pedido
 }

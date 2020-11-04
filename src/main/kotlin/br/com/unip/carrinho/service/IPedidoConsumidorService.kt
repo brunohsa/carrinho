@@ -11,6 +11,4 @@ interface IPedidoConsumidorService {
     fun buscarPedidos(filtro: FiltroPedidoDTO): List<PedidoDTO>
 
     fun pagar(id: String, dadosPagamento: DadosPagamentoDTO): PedidoDTO
-
-    fun avaliar(id: String)
 }

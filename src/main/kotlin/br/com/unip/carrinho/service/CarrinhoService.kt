@@ -120,9 +120,9 @@ class CarrinhoService(val carrinhoRepository: ICarrinhoRepository,
         }
     }
 
-    private fun somarValorTotal(produtosCarrinho: List<ProdutoCarrinhoDTO>): BigDecimal {
-        var valorTotal: BigDecimal = BigDecimal.ZERO
-        produtosCarrinho.forEach { pc -> valorTotal += pc.produto.valor.multiply(BigDecimal(pc.quantidade)) }
+    private fun somarValorTotal(produtosCarrinho: List<ProdutoCarrinhoDTO>): Double {
+        var valorTotal = 0.0
+        produtosCarrinho.forEach { pc -> valorTotal += pc.produto.valor * pc.quantidade }
         return valorTotal
     }
 

@@ -67,8 +67,12 @@ class PedidoService : IPedidoService {
         return LocalDate.parse(this, format)!!.atTime(hora, minutos)
     }
 
-    override fun buscarPedido(id: String): Pedido {
-        return pedidoRepository.findById(id).orElseThrow { NaoEncontradoException(PEDIDO_NAO_ENCONTRADO) }
+    override fun buscarPedido(id: String, uuidCadastro: String): Pedido {
+        val pedido = pedidoRepository.buscarPedido(id, uuidCadastro)
+        if (pedido == null) {
+            NaoEncontradoException(PEDIDO_NAO_ENCONTRADO)
+        }
+        return pedido!!
     }
 
     protected fun map(pedidos: List<Pedido>): List<PedidoDTO> {

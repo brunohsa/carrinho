@@ -1,10 +1,7 @@
 package br.com.unip.carrinho.service
 
 import br.com.unip.autenticacaolib.util.AuthenticationUtil
-import br.com.unip.carrinho.dto.DadosPagamentoDTO
-import br.com.unip.carrinho.dto.FiltroPedidoDTO
-import br.com.unip.carrinho.dto.PedidoDTO
-import br.com.unip.carrinho.dto.ProdutoCarrinhoDTO
+import br.com.unip.carrinho.dto.*
 import br.com.unip.carrinho.repository.IPedidoRepository
 import br.com.unip.carrinho.repository.entity.Cliente
 import br.com.unip.carrinho.repository.entity.Item
@@ -37,16 +34,12 @@ class PedidoConsumidorService(val carrinhoService: ICarrinhoService,
         return pedido.toDTO()
     }
 
-    override fun avaliar(id: String) {
-
-    }
-
     override fun buscarPedidos(filtro: FiltroPedidoDTO): List<PedidoDTO> {
         return this.buscarPedidos(filtro, getCadatroUUID(), "cadastroUUID")
     }
 
     override fun pagar(id: String, dadosPagamento: DadosPagamentoDTO): PedidoDTO {
-        val pedido = buscarPedido(id)
+        val pedido = buscarPedido(id, getCadatroUUID())
         val pagamento = pagamentoService.pagar(dadosPagamento, pedido.valor)
         pedido.pagamento = pagamento
         pedido.paraPendentePreparacao()
@@ -55,9 +48,9 @@ class PedidoConsumidorService(val carrinhoService: ICarrinhoService,
         return pedido.toDTO()
     }
 
-    private fun calcularValorPedido(produtosCarrinho: List<ProdutoCarrinhoDTO>): BigDecimal {
-        var valorTotal: BigDecimal = BigDecimal.ZERO
-        produtosCarrinho.forEach { pc -> valorTotal += pc.produto.valor.multiply(BigDecimal(pc.quantidade)) }
+    private fun calcularValorPedido(produtosCarrinho: List<ProdutoCarrinhoDTO>): Double {
+        var valorTotal = 0.0
+        produtosCarrinho.forEach { pc -> valorTotal += pc.produto.valor * pc.quantidade }
         return valorTotal
     }
 
@@ -66,9 +59,13 @@ class PedidoConsumidorService(val carrinhoService: ICarrinhoService,
     }
 
     private fun getCliente(cadastroUUID: String): Cliente {
-        val clienteDTO = cadastroService.buscarPessoaFisica(cadastroUUID)
-        val nomeCliente = "${clienteDTO.nome} ${clienteDTO.sobrenome}"
-        return Cliente(nomeCliente, clienteDTO.telefone)
+        val cadastroDTO = cadastroService.buscarCadastro(cadastroUUID)
+        val pessoa = cadastroDTO.pessoa
+        var nomeCliente = pessoa.nome!!
+        if (pessoa.sobrenome != null) {
+            nomeCliente += pessoa.sobrenome
+        }
+        return Cliente(nomeCliente, pessoa.telefone)
     }
 
     private fun getCadatroUUID(): String {

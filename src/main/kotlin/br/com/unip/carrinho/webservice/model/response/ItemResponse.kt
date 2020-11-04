@@ -1,7 +1,6 @@
 package br.com.unip.carrinho.webservice.model.response
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import java.math.BigDecimal
 
 class ItemResponse(@JsonProperty("id")
                    val id: String,
@@ -16,4 +15,4 @@ class ItemResponse(@JsonProperty("id")
                    val quantidade: Long,
 
                    @JsonProperty("valor")
-                   val valor: BigDecimal)
+                   val valor: Double)

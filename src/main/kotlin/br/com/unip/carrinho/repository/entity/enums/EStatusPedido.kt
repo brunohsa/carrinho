@@ -9,4 +9,8 @@ enum class EStatusPedido {
             return values().find { v -> v.name == status }
         }
     }
+
+    fun isConcluido(): Boolean {
+        return this == CONCLUIDO
+    }
 }

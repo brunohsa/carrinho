@@ -1,8 +1,8 @@
 package br.com.unip.carrinho.service
 
-import br.com.unip.carrinho.dto.PessoaFisicaDTO
+import br.com.unip.carrinho.dto.CadastroDTO
 
 interface ICadastroService {
 
-    fun buscarPessoaFisica(cadastroUUID: String): PessoaFisicaDTO
+    fun buscarCadastro(cadastroUUID: String): CadastroDTO
 }

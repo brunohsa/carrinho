@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping(value = ["/v1/pedidos/fornecedores"])
+@RequestMapping(value = ["/v1/fornecedores/pedidos"])
 class PedidoFornecedorWS(val pedidoService: IPedidoFornecedorService) {
 
     @ApiImplicitParams(ApiImplicitParam(name = "token", value = "Token", required = true, paramType = "header"))

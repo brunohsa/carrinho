@@ -15,7 +15,7 @@ class PedidoFornecedorService(val pedidoRepository: IPedidoRepository) : IPedido
     }
 
     override fun concluido(pedidoId: String) {
-        val pedido = super.buscarPedido(pedidoId)
+        val pedido = super.buscarPedido(pedidoId, AuthenticationUtil.getCadastroUUID()!!)
         pedido.paraConcluido()
 
         pedidoRepository.save(pedido)

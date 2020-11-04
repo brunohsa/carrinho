@@ -12,5 +12,8 @@ interface IPedidoRepository : MongoRepository<Pedido, String> {
     fun buscarPedidosPorUuidCadastro(uuid: String, status: EStatusPedido = CONCLUIDO): List<Pedido>
 
     @Query("{cadastroUUID: ?0, status: {`$`in: ?1} }")
-    fun buscarPedidos(uuid: String, status: List<EStatusPedido>) : List<Pedido>
+    fun buscarPedidos(uuid: String, status: List<EStatusPedido>): List<Pedido>
+
+    @Query("{id: ?0, cadastroUUID: ?1 }")
+    fun buscarPedido(id: String, uuid: String): Pedido?
 }

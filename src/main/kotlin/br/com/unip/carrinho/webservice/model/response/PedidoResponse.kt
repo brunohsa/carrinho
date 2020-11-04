@@ -2,7 +2,6 @@ package br.com.unip.carrinho.webservice.model.response
 
 import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.annotation.JsonProperty
-import java.math.BigDecimal
 import java.time.LocalDateTime
 
 class PedidoResponse {
@@ -20,7 +19,7 @@ class PedidoResponse {
     val itens: List<ItemResponse>
 
     @JsonProperty("valor_total")
-    val valor: BigDecimal
+    val valor: Double
 
     @JsonProperty("cliente")
     var cliente: ClienteResponse? = null
@@ -29,13 +28,13 @@ class PedidoResponse {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm")
     var dataPedido: LocalDateTime
 
-    constructor(id: String?, numero: String, status: String, itens: List<ItemResponse>, valor: BigDecimal,
+    constructor(id: String?, numero: String, status: String, itens: List<ItemResponse>, valor: Double,
                 cliente: ClienteResponse?, dataPedido: LocalDateTime)
             : this(id, numero, status, itens, valor, dataPedido) {
         this.cliente = cliente
     }
 
-    constructor(id: String?, numero: String, status: String, itens: List<ItemResponse>, valor: BigDecimal,
+    constructor(id: String?, numero: String, status: String, itens: List<ItemResponse>, valor: Double,
                 dataPedido: LocalDateTime) {
         this.id = id
         this.numero = numero
