@@ -7,5 +7,5 @@ interface IPedidoFornecedorService {
 
     fun buscarPedidos(filtro: FiltroPedidoDTO): List<PedidoDTO>
 
-    fun concluido(pedidoId: String)
+    fun alterarStatusPedido(id: String, novoStatus: String)
 }

@@ -11,7 +11,12 @@ import br.com.unip.carrinho.webservice.model.response.PedidoResponse
 import io.swagger.annotations.ApiImplicitParam
 import io.swagger.annotations.ApiImplicitParams
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PutMapping
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping(value = ["/v1/fornecedores/pedidos"])
@@ -29,9 +34,10 @@ class PedidoFornecedorWS(val pedidoService: IPedidoFornecedorService) {
     }
 
     @ApiImplicitParams(ApiImplicitParam(name = "token", value = "Token", required = true, paramType = "header"))
-    @PutMapping(value = ["/{id_pedido}/concluir"])
-    fun concluir(@PathVariable("id_pedido") pedidoId: String): ResponseEntity<Void> {
-        pedidoService.concluido(pedidoId)
+    @PutMapping(value = ["{id_pedido}/status/{status}/alterar"])
+    fun alterarStatusPedido(@PathVariable(value = "id_pedido") idPedido: String,
+                            @PathVariable(value = "status") status: String): ResponseEntity<Void> {
+        pedidoService.alterarStatusPedido(idPedido, status)
         return ResponseEntity.ok().build()
     }
 

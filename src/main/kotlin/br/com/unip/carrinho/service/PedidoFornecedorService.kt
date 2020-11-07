@@ -4,6 +4,7 @@ import br.com.unip.autenticacaolib.util.AuthenticationUtil
 import br.com.unip.carrinho.dto.FiltroPedidoDTO
 import br.com.unip.carrinho.dto.PedidoDTO
 import br.com.unip.carrinho.repository.IPedidoRepository
+import br.com.unip.carrinho.repository.entity.enums.EStatusPedido
 import org.springframework.stereotype.Service
 
 
@@ -14,9 +15,10 @@ class PedidoFornecedorService(val pedidoRepository: IPedidoRepository) : IPedido
         return super.buscarPedidos(filtro, AuthenticationUtil.getCadastroUUID()!!, "fornecedorUUID")
     }
 
-    override fun concluido(pedidoId: String) {
-        val pedido = super.buscarPedido(pedidoId, AuthenticationUtil.getCadastroUUID()!!)
-        pedido.paraConcluido()
+    override fun alterarStatusPedido(id: String, novoStatus: String) {
+        val pedido = pedidoRepository.findById(id).get()
+        val status = EStatusPedido.getStatus(novoStatus)
+        pedido.status = status!!
 
         pedidoRepository.save(pedido)
     }

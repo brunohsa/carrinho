@@ -1,14 +1,17 @@
 package br.com.unip.carrinho.service
 
 import br.com.unip.autenticacaolib.util.AuthenticationUtil
-import br.com.unip.carrinho.dto.*
+import br.com.unip.carrinho.dto.DadosPagamentoDTO
+import br.com.unip.carrinho.dto.FiltroPedidoDTO
+import br.com.unip.carrinho.dto.PedidoDTO
+import br.com.unip.carrinho.dto.ProdutoCarrinhoDTO
 import br.com.unip.carrinho.repository.IPedidoRepository
 import br.com.unip.carrinho.repository.entity.Cliente
 import br.com.unip.carrinho.repository.entity.Item
 import br.com.unip.carrinho.repository.entity.Pedido
 import br.com.unip.carrinho.repository.entity.Sequence.PEDIDO_SEQUENCE
+import br.com.unip.carrinho.repository.entity.enums.EStatusPedido
 import org.springframework.stereotype.Service
-import java.math.BigDecimal
 
 
 @Service
@@ -34,6 +37,10 @@ class PedidoConsumidorService(val carrinhoService: ICarrinhoService,
         return pedido.toDTO()
     }
 
+    override fun buscarPedido(id: String): Pedido {
+        return pedidoRepository.findById(id).get()
+    }
+
     override fun buscarPedidos(filtro: FiltroPedidoDTO): List<PedidoDTO> {
         return this.buscarPedidos(filtro, getCadatroUUID(), "cadastroUUID")
     }
@@ -43,8 +50,8 @@ class PedidoConsumidorService(val carrinhoService: ICarrinhoService,
         val pagamento = pagamentoService.pagar(dadosPagamento, pedido.valor)
         pedido.pagamento = pagamento
         pedido.paraPendentePreparacao()
-        pedidoRepository.save(pedido)
 
+        pedidoRepository.save(pedido)
         return pedido.toDTO()
     }
 

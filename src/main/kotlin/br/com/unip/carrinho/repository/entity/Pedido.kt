@@ -1,7 +1,8 @@
 package br.com.unip.carrinho.repository.entity
 
 import br.com.unip.carrinho.repository.entity.enums.EStatusPedido
-import br.com.unip.carrinho.repository.entity.enums.EStatusPedido.*
+import br.com.unip.carrinho.repository.entity.enums.EStatusPedido.PENDENTE_PAGAMENTO
+import br.com.unip.carrinho.repository.entity.enums.EStatusPedido.PENDENTE_PREPARACAO
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 import java.time.LocalDateTime
@@ -41,9 +42,5 @@ class Pedido {
 
     fun paraPendentePreparacao() {
         this.status = PENDENTE_PREPARACAO
-    }
-
-    fun paraConcluido() {
-        this.status = CONCLUIDO
     }
 }
