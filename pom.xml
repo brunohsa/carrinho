@@ -196,9 +196,6 @@
                 <configuration>
                     <changeLogFile>src/main/resources/db/${change.log.file}</changeLogFile>
                     <driver>com.mysql.jdbc.Driver</driver>
-                    <url>${liquibase.datasource.url}</url>
-                    <username>${liquibase.datasource.username}</username>
-                    <password>${liquibase.datasource.password}</password>
                     <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
                 </configuration>
                 <dependencies>

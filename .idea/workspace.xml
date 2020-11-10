@@ -3,50 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="4be9f5aa-8c3d-4bac-a35d-cb836c4ce167" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/AdicionarProdutoCarrinhoDTO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/AdicionarProdutoCarrinhoDTO.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/ItemDTO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/ItemDTO.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/ProdutoCarrinhoDTO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/dto/ProdutoCarrinhoDTO.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/exception/ECodigoErro.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/exception/ECodigoErro.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Cardapio.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Cardapio.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Item.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Item.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Produto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/Produto.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/ProdutoCarrinho.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/repository/entity/ProdutoCarrinho.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/CardapioService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/CardapioService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/CarrinhoService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/CarrinhoService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/ICardapioService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/ICardapioService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/IProdutoService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/IProdutoService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/PedidoService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/PedidoService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/ProdutoService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/service/ProdutoService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/PedidoConsumidorWS.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/PedidoConsumidorWS.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/request/ProdutoRequest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/request/ProdutoRequest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/ItemCarrinhoResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/ItemCarrinhoResponse.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/ItemResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/br/com/unip/carrinho/webservice/model/response/ItemResponse.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application-docker.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-docker.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application-local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application-local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/dto/AdicionarProdutoCarrinhoDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/dto/AdicionarProdutoCarrinhoDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/dto/ItemDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/dto/ItemDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/dto/ProdutoCarrinhoDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/dto/ProdutoCarrinhoDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/exception/ECodigoErro.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/exception/ECodigoErro.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/repository/entity/Cardapio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/repository/entity/Cardapio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/repository/entity/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/repository/entity/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/repository/entity/Produto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/repository/entity/Produto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/repository/entity/ProdutoCarrinho.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/repository/entity/ProdutoCarrinho.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/service/CardapioService$buscarUUIDFornecedor$cardapio$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/service/CardapioService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/service/CardapioService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/service/CarrinhoService$buscarCarrinho$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/service/CarrinhoService$buscarCarrinho$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/service/CarrinhoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/service/CarrinhoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/service/ICardapioService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/service/ICardapioService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/service/IProdutoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/service/IProdutoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/service/PedidoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/service/PedidoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/service/ProdutoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/service/ProdutoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/webservice/CarrinhoWS.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/webservice/CarrinhoWS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/webservice/PedidoConsumidorWS.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/webservice/PedidoConsumidorWS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/webservice/PedidoFornecedorWS.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/webservice/PedidoFornecedorWS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/webservice/model/request/ProdutoRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/webservice/model/request/ProdutoRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/webservice/model/response/ItemCarrinhoResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/webservice/model/response/ItemCarrinhoResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/webservice/model/response/ItemResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/unip/carrinho/webservice/model/response/ItemResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/carrinho-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/carrinho-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application-docker.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application-docker.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,16 +15,15 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>swagger</find>
-      <find>vendidos</find>
-      <find>atualizarQuantidadeVenda</find>
-      <find>alterarStatusPedido</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
   </component>
   <component name="ProjectId" id="1j7YyfqEfLwXgRh2SvNYTvY1vIs" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
