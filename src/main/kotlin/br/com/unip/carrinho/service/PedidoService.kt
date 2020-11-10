@@ -83,7 +83,7 @@ class PedidoService : IPedidoService {
             this.valor, this.cliente.toDTO(), this.dataPedido)
 
     private fun List<Item>.toDTO() = this.map { i ->
-        ItemDTO(i.id, i.produto, i.observacoes, i.quantidade, i.valor)
+         ItemDTO(i.id, i.produto, i.observacoes, i.quantidade, i.valor)
     }
 
     private fun Cliente.toDTO() = ClienteDTO(this.nome, this.telefone)

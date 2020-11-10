@@ -31,10 +31,11 @@ class ProdutoService(val mongoTemplate: MongoTemplate) : IProdutoService {
         mongoTemplate.save(produto)
     }
 
-    override fun atualizarQuantidadeVenda(pedido: Pedido) {
+    override fun atualizarQuantidadeVendaEEstoque(pedido: Pedido) {
         pedido.itens.map { item ->
             val produto = this.buscar(item.id)
             produto.vendidos += item.quantidade
+            produto.estoque -= item.quantidade
             mongoTemplate.save(produto)
         }
     }

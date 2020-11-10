@@ -1,11 +1,6 @@
 package br.com.unip.carrinho.webservice
 
-import br.com.unip.carrinho.dto.AvaliarPedidoDTO
-import br.com.unip.carrinho.dto.AvaliarProdutoDTO
-import br.com.unip.carrinho.dto.DadosPagamentoDTO
-import br.com.unip.carrinho.dto.FiltroPedidoDTO
-import br.com.unip.carrinho.dto.ItemDTO
-import br.com.unip.carrinho.dto.PedidoDTO
+import br.com.unip.carrinho.dto.*
 import br.com.unip.carrinho.service.IAvaliacaoService
 import br.com.unip.carrinho.service.IPedidoConsumidorService
 import br.com.unip.carrinho.service.IProdutoService
@@ -18,13 +13,7 @@ import io.swagger.annotations.ApiImplicitParam
 import io.swagger.annotations.ApiImplicitParams
 import io.swagger.annotations.ApiParam
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestParam
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping(value = ["/v1/consumidores/pedidos"])
@@ -48,7 +37,7 @@ class PedidoConsumidorWS(val pedidoService: IPedidoConsumidorService,
     fun gerarPedido(@RequestBody pagamento: DadosPagamentoRequest): ResponseEntity<PedidoResponse> {
         val pedido = pedidoService.gerar()
         val pedidoPago = pedidoService.pagar(pedido.id, pagamento.toDTO())
-        produtoService.atualizarQuantidadeVenda(pedidoService.buscarPedido(pedido.id))
+        produtoService.atualizarQuantidadeVendaEEstoque(pedidoService.buscarPedido(pedido.id))
         return ResponseEntity.ok(map(pedidoPago))
     }
 

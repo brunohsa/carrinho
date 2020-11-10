@@ -10,5 +10,7 @@ class Cardapio {
     @Id
     var id: String? = null
 
+    var ativo: Boolean? = null
+
     var uuidFornecedor: String? = null
 }

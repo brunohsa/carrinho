@@ -5,19 +5,19 @@ import br.com.unip.carrinho.dto.AdicionarProdutoCarrinhoDTO
 import br.com.unip.carrinho.dto.CarrinhoDTO
 import br.com.unip.carrinho.dto.ProdutoCarrinhoDTO
 import br.com.unip.carrinho.dto.ProdutoDTO
-import br.com.unip.carrinho.exception.CarrinhoBaseException
 import br.com.unip.carrinho.exception.CarrinhoPossuiProdutosDeOutroFornecedorException
-import br.com.unip.carrinho.exception.ClienteJaPossuiCarrinhoAtivoException
 import br.com.unip.carrinho.exception.ECodigoErro.CARRINHO_NAO_ENCONTRADO
 import br.com.unip.carrinho.exception.ECodigoErro.PRODUTO_NAO_ENCONTRADO
+import br.com.unip.carrinho.exception.ImpossivelAdicionarProdutosDeUmCardapioInativoException
 import br.com.unip.carrinho.exception.NaoEncontradoException
+import br.com.unip.carrinho.exception.ProdutoIndisponivelException
 import br.com.unip.carrinho.repository.ICarrinhoRepository
+import br.com.unip.carrinho.repository.entity.Cardapio
 import br.com.unip.carrinho.repository.entity.Carrinho
 import br.com.unip.carrinho.repository.entity.ProdutoCarrinho
 import br.com.unip.carrinho.repository.entity.enums.EStatusCarrinho
 import br.com.unip.carrinho.repository.entity.enums.EStatusCarrinho.FINALIZADO
 import org.springframework.stereotype.Service
-import java.math.BigDecimal
 
 @Service
 class CarrinhoService(val carrinhoRepository: ICarrinhoRepository,
@@ -54,13 +54,15 @@ class CarrinhoService(val carrinhoRepository: ICarrinhoRepository,
 
     override fun adicionarProduto(dto: AdicionarProdutoCarrinhoDTO, cardapioId: String): CarrinhoDTO {
         val carrinho = this.buscarCarrinho()
+        val cardapio = cardapioService.buscar(cardapioId)
 
-        this.validarEAdicionarFornecedorUUID(carrinho, cardapioId)
+        this.validarEAdicionarFornecedorUUID(carrinho, cardapio)
+        this.validarSeCardapioAtivo(cardapio)
 
         val produtos = carrinho.produtos.toMutableList()
         val produtoCarrinho = produtos.find { p -> p.produto.id == dto.id }
         if (produtoCarrinho != null) {
-            this.atualizarQuantidadeProduto(produtoCarrinho, dto.quantidade)
+            produtoCarrinho.quantidade += dto.quantidade
         } else {
             this.adicionarNovoProduto(produtos, dto, cardapioId)
         }
@@ -69,18 +71,23 @@ class CarrinhoService(val carrinhoRepository: ICarrinhoRepository,
         return this.map(carrinho)
     }
 
-    private fun atualizarQuantidadeProduto(produtoCarrinho: ProdutoCarrinho, quantidade: Long) {
-        produtoCarrinho.quantidade = produtoCarrinho.quantidade.plus(quantidade)
+    private fun validarSeCardapioAtivo(cardapio: Cardapio) {
+        if (cardapio.ativo != null && !cardapio.ativo!!) {
+            throw ImpossivelAdicionarProdutosDeUmCardapioInativoException()
+        }
     }
 
     private fun adicionarNovoProduto(produtos: MutableList<ProdutoCarrinho>, dto: AdicionarProdutoCarrinhoDTO, cardapioId: String) {
         val produto = produtoService.buscarProduto(dto.id, cardapioId)
+        if (produto.estoque == 0) {
+            throw ProdutoIndisponivelException()
+        }
         val carrinhoProduto = ProdutoCarrinho(produto, dto.observacoes, dto.quantidade)
         produtos.add(carrinhoProduto)
     }
 
-    private fun validarEAdicionarFornecedorUUID(carrinho: Carrinho, cardapioId: String) {
-        val fornecedorUUID = cardapioService.buscarUUIDFornecedor(cardapioId)
+    private fun validarEAdicionarFornecedorUUID(carrinho: Carrinho, cardapio: Cardapio) {
+        val fornecedorUUID = cardapio.uuidFornecedor
         if (carrinho.fornecedorUUID == null) {
             carrinho.fornecedorUUID = fornecedorUUID
         } else if (carrinho.fornecedorUUID != fornecedorUUID) {

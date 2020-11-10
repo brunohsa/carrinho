@@ -9,5 +9,5 @@ interface IProdutoService {
 
     fun atualizarNotaMedia(id: String, notaMedia: Double)
 
-    fun atualizarQuantidadeVenda(pedido: Pedido)
+    fun atualizarQuantidadeVendaEEstoque(pedido: Pedido)
 }

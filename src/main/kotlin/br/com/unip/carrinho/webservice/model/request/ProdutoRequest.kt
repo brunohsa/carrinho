@@ -4,5 +4,5 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-class ProdutoRequest(@JsonProperty("quantidade") var quantidade: Long = 1,
+class ProdutoRequest(@JsonProperty("quantidade") var quantidade: Int = 1,
                      @JsonProperty("observacoes") var observacoes: String?)

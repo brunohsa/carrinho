@@ -1,6 +1,8 @@
 package br.com.unip.carrinho.service
 
+import br.com.unip.carrinho.repository.entity.Cardapio
+
 interface ICardapioService {
 
-    fun buscarUUIDFornecedor(cardapioId: String) : String
+    fun buscar(cardapioId: String) : Cardapio
 }

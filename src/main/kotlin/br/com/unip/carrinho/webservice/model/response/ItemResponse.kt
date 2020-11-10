@@ -12,7 +12,7 @@ class ItemResponse(@JsonProperty("id")
                    val observacoes: String?,
 
                    @JsonProperty("quantidade")
-                   val quantidade: Long,
+                   val quantidade: Int,
 
                    @JsonProperty("valor")
                    val valor: Double)

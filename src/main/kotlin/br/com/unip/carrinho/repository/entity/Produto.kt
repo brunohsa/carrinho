@@ -15,7 +15,9 @@ class Produto {
 
     var cardapioId: String
 
-    var vendidos: Long = 0
+    var vendidos: Int = 0
+
+    var estoque: Int = 0
 
     var nota: Double = 0.0
 
