@@ -10,7 +10,6 @@ import br.com.unip.carrinho.repository.entity.Cliente
 import br.com.unip.carrinho.repository.entity.Item
 import br.com.unip.carrinho.repository.entity.Pedido
 import br.com.unip.carrinho.repository.entity.Sequence.PEDIDO_SEQUENCE
-import br.com.unip.carrinho.repository.entity.enums.EStatusPedido
 import org.springframework.stereotype.Service
 
 
@@ -70,7 +69,7 @@ class PedidoConsumidorService(val carrinhoService: ICarrinhoService,
         val pessoa = cadastroDTO.pessoa
         var nomeCliente = pessoa.nome!!
         if (pessoa.sobrenome != null) {
-            nomeCliente += pessoa.sobrenome
+            nomeCliente += " ${pessoa.sobrenome}"
         }
         return Cliente(nomeCliente, pessoa.telefone)
     }
