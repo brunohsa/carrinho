@@ -18,6 +18,7 @@ import br.com.unip.carrinho.repository.entity.ProdutoCarrinho
 import br.com.unip.carrinho.repository.entity.enums.EStatusCarrinho
 import br.com.unip.carrinho.repository.entity.enums.EStatusCarrinho.FINALIZADO
 import org.springframework.stereotype.Service
+import java.util.*
 
 @Service
 class CarrinhoService(val carrinhoRepository: ICarrinhoRepository,
@@ -25,19 +26,11 @@ class CarrinhoService(val carrinhoRepository: ICarrinhoRepository,
                       val cardapioService: ICardapioService) : ICarrinhoService {
 
     override fun criar(): CarrinhoDTO {
-        val uuid = this.getCadastroUUID()
-        val carrinhoPersistido = carrinhoRepository.buscarCarrinho(uuid)
-        if (carrinhoPersistido.isPresent) {
-            return map(carrinhoPersistido.get())
-        }
-        val carrinho = Carrinho(uuid, EStatusCarrinho.ATIVO)
-        carrinhoRepository.save(carrinho)
-
-        return map(carrinho)
+        return map(criarCarrinho())
     }
 
     override fun buscar(): CarrinhoDTO {
-        return map(this.buscarCarrinho())
+        return map(this.buscarCarrinho().orElseThrow { throw NaoEncontradoException(CARRINHO_NAO_ENCONTRADO) })
     }
 
     override fun buscarPorFornecedor(uuidFornecedor: String): List<CarrinhoDTO> {
@@ -53,7 +46,7 @@ class CarrinhoService(val carrinhoRepository: ICarrinhoRepository,
     }
 
     override fun adicionarProduto(dto: AdicionarProdutoCarrinhoDTO, cardapioId: String): CarrinhoDTO {
-        val carrinho = this.buscarCarrinho()
+        val carrinho = this.buscarCarrinho().orElse(this.criarCarrinho())
         val cardapio = cardapioService.buscar(cardapioId)
 
         this.validarEAdicionarFornecedorUUID(carrinho, cardapio)
@@ -63,12 +56,34 @@ class CarrinhoService(val carrinhoRepository: ICarrinhoRepository,
         val produtoCarrinho = produtos.find { p -> p.produto.id == dto.id }
         if (produtoCarrinho != null) {
             produtoCarrinho.quantidade += dto.quantidade
+            this.atualizarObservacaoCarrinhoSeNecessario(produtoCarrinho, dto.observacoes)
         } else {
             this.adicionarNovoProduto(produtos, dto, cardapioId)
         }
         carrinho.produtos = produtos
         carrinhoRepository.save(carrinho)
         return this.map(carrinho)
+    }
+
+    private fun criarCarrinho(): Carrinho {
+        val uuid = this.getCadastroUUID()
+        val carrinhoPersistido = carrinhoRepository.buscarCarrinho(uuid)
+        if (carrinhoPersistido.isPresent) {
+            return carrinhoPersistido.get()
+        }
+        val carrinho = Carrinho(uuid, EStatusCarrinho.ATIVO)
+        return carrinhoRepository.save(carrinho)
+    }
+
+    private fun atualizarObservacaoCarrinhoSeNecessario(produtoCarrinho: ProdutoCarrinho, observacoes: String?) {
+        if (observacoes.isNullOrEmpty()) {
+            return
+        }
+        if (produtoCarrinho.observacoes.isNullOrBlank()) {
+            produtoCarrinho.observacoes += observacoes
+        } else {
+            produtoCarrinho.observacoes += ", $observacoes"
+        }
     }
 
     private fun validarSeCardapioAtivo(cardapio: Cardapio) {
@@ -97,6 +112,7 @@ class CarrinhoService(val carrinhoRepository: ICarrinhoRepository,
 
     override fun removerProduto(idProduto: String) {
         val carrinho = this.buscarCarrinho()
+                .orElseThrow { throw NaoEncontradoException(CARRINHO_NAO_ENCONTRADO) }
         val produtoCarrinho = carrinho.produtos.find { pc -> pc.produto.id == idProduto }
                 ?: throw NaoEncontradoException(PRODUTO_NAO_ENCONTRADO)
         carrinho.removerProduto(produtoCarrinho)
@@ -107,10 +123,9 @@ class CarrinhoService(val carrinhoRepository: ICarrinhoRepository,
         carrinhoRepository.save(carrinho)
     }
 
-    private fun buscarCarrinho(): Carrinho {
+    private fun buscarCarrinho(): Optional<Carrinho> {
         val uuid = this.getCadastroUUID()
         return carrinhoRepository.buscarCarrinho(uuid)
-                .orElseThrow { throw NaoEncontradoException(CARRINHO_NAO_ENCONTRADO) }
     }
 
     private fun map(carrinho: Carrinho): CarrinhoDTO {

@@ -10,6 +10,7 @@ import br.com.unip.carrinho.webservice.model.response.ItemResponse
 import br.com.unip.carrinho.webservice.model.response.PedidoResponse
 import io.swagger.annotations.ApiImplicitParam
 import io.swagger.annotations.ApiImplicitParams
+import io.swagger.annotations.ApiParam
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -24,10 +25,10 @@ class PedidoFornecedorWS(val pedidoService: IPedidoFornecedorService) {
 
     @ApiImplicitParams(ApiImplicitParam(name = "token", value = "Token", required = true, paramType = "header"))
     @GetMapping
-    fun buscar(@RequestParam("status") status: ArrayList<String>?,
-               @RequestParam("de") de: String?,
-               @RequestParam("ate") ate: String?,
-               @RequestParam("limite") limite: Int?): ResponseEntity<List<PedidoResponse>> {
+    fun buscar(@ApiParam(required = false) @RequestParam("status") status: ArrayList<String>?,
+               @ApiParam(required = false) @RequestParam("de") de: String?,
+               @ApiParam(required = false) @RequestParam("ate") ate: String?,
+               @ApiParam(required = false) @RequestParam("limite") limite: Int?): ResponseEntity<List<PedidoResponse>> {
         val filtro = FiltroPedidoDTO(status, de, ate, limite)
         val id = pedidoService.buscarPedidos(filtro)
         return ResponseEntity.ok(map(id))
