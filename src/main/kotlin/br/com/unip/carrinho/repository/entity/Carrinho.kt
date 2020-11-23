@@ -13,6 +13,8 @@ class Carrinho {
 
     lateinit var cadastroUUID: String
 
+    var fornecedorUUID: String? = null
+
     var produtos: List<ProdutoCarrinho> = emptyList()
 
     lateinit var status: EStatusCarrinho

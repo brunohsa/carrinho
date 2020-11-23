@@ -1,95 +1,90 @@
 package br.com.unip.carrinho.service
 
-import br.com.unip.autenticacaolib.util.AuthenticationUtil
-import br.com.unip.carrinho.dto.DadosPagamentoDTO
+import br.com.unip.carrinho.dto.ClienteDTO
+import br.com.unip.carrinho.dto.FiltroPedidoDTO
 import br.com.unip.carrinho.dto.ItemDTO
 import br.com.unip.carrinho.dto.PedidoDTO
-import br.com.unip.carrinho.dto.ProdutoCarrinhoDTO
+import br.com.unip.carrinho.exception.DataNaoPodeSerRetroativa
 import br.com.unip.carrinho.exception.ECodigoErro.PEDIDO_NAO_ENCONTRADO
 import br.com.unip.carrinho.exception.NaoEncontradoException
 import br.com.unip.carrinho.repository.IPedidoRepository
+import br.com.unip.carrinho.repository.entity.Cliente
 import br.com.unip.carrinho.repository.entity.Item
 import br.com.unip.carrinho.repository.entity.Pedido
-import br.com.unip.carrinho.repository.entity.Sequence.PEDIDO_SEQUENCE
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.data.domain.Sort
+import org.springframework.data.domain.Sort.Direction
 import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.data.mongodb.core.query.Criteria
 import org.springframework.data.mongodb.core.query.Query
 import org.springframework.stereotype.Service
-import java.math.BigDecimal
-
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 @Service
-class PedidoService(val carrinhoService: ICarrinhoService,
-                    val pedidoRepository: IPedidoRepository,
-                    val sequenceService: ISequenceService,
-                    val mongoTemplate: MongoTemplate,
-                    val pagamentoService: IPagamentoService) : IPedidoService {
+class PedidoService : IPedidoService {
 
-    override fun gerar(): PedidoDTO {
-        val cadastroUUID = getCadatroUUID()
+    @Autowired
+    private lateinit var pedidoRepository: IPedidoRepository
 
-        val carrinho = carrinhoService.buscar()
-        val itens = carrinho.produtos.map { pc -> Item(pc.produto.nome, pc.observacoes, pc.quantidade) }
-        val numero = sequenceService.getSequenceNumeroPedido("$PEDIDO_SEQUENCE-${cadastroUUID}")
-        val valorTotal = calcularValorPedido(carrinho.produtos)
+    @Autowired
+    private lateinit var mongoTemplate: MongoTemplate
 
-        val pedido = Pedido(cadastroUUID, numero, itens, valorTotal)
-        pedidoRepository.save(pedido)
-        carrinhoService.finalizar(carrinho.id)
+    private val DATE_FORMAT: String = "dd/MM/yyyy"
 
-        return map(pedido)
-    }
-
-    private fun calcularValorPedido(produtosCarrinho: List<ProdutoCarrinhoDTO>): BigDecimal {
-        var valorTotal: BigDecimal = BigDecimal.ZERO
-        produtosCarrinho.forEach { pc -> valorTotal += pc.produto.valor.multiply(BigDecimal(pc.quantidade)) }
-        return valorTotal
-    }
-
-    override fun buscarPedidos(status: List<String>): List<PedidoDTO> {
-        var criteria = Criteria.where("cadastroUUID").`is`(getCadatroUUID())
-        if (status.isNotEmpty()) {
-            criteria = criteria.and("status").`in`(status)
+    override fun buscarPedidos(filtro: FiltroPedidoDTO, uuidCadastro: String, keyWhere: String): List<PedidoDTO> {
+        var criteria = Criteria.where(keyWhere).`is`(uuidCadastro)
+        if (filtro.status != null && filtro.status.isNotEmpty()) {
+            criteria = criteria.and("status").`in`(filtro.status)
         }
+        if (filtro.de != null && filtro.ate != null) {
+            val dataDe = filtro.de.toLocalDate(0, 0)
+            val dataAte = filtro.ate.toLocalDate(23, 59)
+
+            this.validarRetroatividade(dataDe, dataAte)
+
+            criteria = criteria.and("dataPedido").gte(dataDe).lt(dataAte)
+        }
+
         val query = Query().addCriteria(criteria)
-        val pedidos = mongoTemplate.find(query, Pedido::class.java)
+        query.with(Sort(Direction.DESC, "dataPedido"))
 
-        return this.map(pedidos)
+        if (filtro.limite != null && filtro.limite > 0) {
+            query.limit(filtro.limite)
+        }
+        return this.map(mongoTemplate.find(query, Pedido::class.java))
     }
 
-    override fun concluido(pedidoId: String) {
-        val pedido = buscarPedido(pedidoId)
-        pedido.paraConcluido()
-
-        pedidoRepository.save(pedido)
+    private fun validarRetroatividade(de: LocalDateTime, ate: LocalDateTime) {
+        if (de.isAfter(ate)) {
+            throw DataNaoPodeSerRetroativa()
+        }
     }
 
-    override fun pagar(id: String, dadosPagamento: DadosPagamentoDTO) {
-        val pedido = buscarPedido(id)
-        val pagamento = pagamentoService.pagar(dadosPagamento, pedido.valor)
-        pedido.pagamento = pagamento
-        pedido.paraPendentePreparacao()
-
-        pedidoRepository.save(pedido)
+    private fun String.toLocalDate(hora: Int, minutos: Int): LocalDateTime {
+        val format = DateTimeFormatter.ofPattern(DATE_FORMAT)
+        return LocalDate.parse(this, format)!!.atTime(hora, minutos)
     }
 
-    private fun buscarPedido(id: String): Pedido {
-        return pedidoRepository.findById(id).orElseThrow { NaoEncontradoException(PEDIDO_NAO_ENCONTRADO) }
+    override fun buscarPedido(id: String, uuidCadastro: String): Pedido {
+        val pedido = pedidoRepository.buscarPedido(id, uuidCadastro)
+        if (pedido == null) {
+            NaoEncontradoException(PEDIDO_NAO_ENCONTRADO)
+        }
+        return pedido!!
     }
 
-    private fun map(pedidos: List<Pedido>): List<PedidoDTO> {
-        return pedidos.map { p -> map(p) }
+    protected fun map(pedidos: List<Pedido>): List<PedidoDTO> {
+        return pedidos.map { p -> p.toDTO() }
     }
 
-    private fun map(pedido: Pedido): PedidoDTO {
-        return PedidoDTO(pedido.id, pedido.numero, mapItens(pedido.itens), pedido.status.toString(), pedido.valor)
+    protected fun Pedido.toDTO() = PedidoDTO(this.id, this.numero, this.itens.toDTO(), this.status.toString(),
+            this.valor, this.cliente.toDTO(), this.dataPedido)
+
+    private fun List<Item>.toDTO() = this.map { i ->
+         ItemDTO(i.id, i.produto, i.observacoes, i.quantidade, i.valor)
     }
 
-    private fun mapItens(itens: List<Item>): List<ItemDTO> {
-        return itens.map { i -> ItemDTO(i.produto, i.observacoes, i.quantidade) }
-    }
-
-    private fun getCadatroUUID(): String {
-        return AuthenticationUtil.getCadastroUUID()!!
-    }
+    private fun Cliente.toDTO() = ClienteDTO(this.nome, this.telefone)
 }

@@ -4,11 +4,13 @@ import br.com.unip.carrinho.dto.AdicionarProdutoCarrinhoDTO
 import br.com.unip.carrinho.dto.CarrinhoDTO
 import br.com.unip.carrinho.dto.ProdutoCarrinhoDTO
 import br.com.unip.carrinho.service.ICarrinhoService
+import br.com.unip.carrinho.service.IProdutoService
 import br.com.unip.carrinho.webservice.model.request.ProdutoRequest
-import br.com.unip.carrinho.webservice.model.response.CarrinhoCriadoResponse
 import br.com.unip.carrinho.webservice.model.response.CarrinhoResponse
 import br.com.unip.carrinho.webservice.model.response.ItemCarrinhoResponse
 import br.com.unip.carrinho.webservice.model.response.ProdutoResponse
+import io.swagger.annotations.ApiImplicitParam
+import io.swagger.annotations.ApiImplicitParams
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
@@ -21,43 +23,58 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping(value = ["/v1/carrinhos"])
-class CarrinhoWS(val carrinhoService: ICarrinhoService) {
+class CarrinhoWS(val carrinhoService: ICarrinhoService, val prod: IProdutoService) {
 
+    @ApiImplicitParams(ApiImplicitParam(name = "token", value = "Token", required = true, paramType = "header"))
     @PostMapping(value = ["/criar"])
-    fun criarCardapio(): ResponseEntity<CarrinhoCriadoResponse> {
-        val id = carrinhoService.criar()
-        return ResponseEntity.ok(CarrinhoCriadoResponse(id))
+    fun criarCardapio(): ResponseEntity<CarrinhoResponse> {
+        val dto = carrinhoService.criar()
+        return ResponseEntity.ok(this.map(dto))
     }
 
-    @GetMapping(value = [""])
+    @ApiImplicitParams(ApiImplicitParam(name = "token", value = "Token", required = true, paramType = "header"))
+    @GetMapping
     fun buscar(): ResponseEntity<CarrinhoResponse> {
         val carrinho = carrinhoService.buscar()
         return ResponseEntity.ok(this.map(carrinho))
     }
 
-    @PutMapping(value = ["/produto/{id_produto}/adicionar"])
-    fun adicionarProduto(@PathVariable(value = "id_produto") idProduto: String,
+    @ApiImplicitParams(ApiImplicitParam(name = "token", value = "Token", required = true, paramType = "header"))
+    @GetMapping(value = ["/cardapio/fornecedor/{uuid_fornecedor}"])
+    fun buscarPorFornecedor(@PathVariable(value = "uuid_fornecedor") uuidFornecedor: String)
+            : ResponseEntity<List<CarrinhoResponse>> {
+        val carrinhos = carrinhoService.buscarPorFornecedor(uuidFornecedor)
+        val response = carrinhos.map { c -> this.map(c) }
+        return ResponseEntity.ok(response)
+    }
+
+    @ApiImplicitParams(ApiImplicitParam(name = "token", value = "Token", required = true, paramType = "header"))
+    @PutMapping(value = ["/cardapio/{id_cardapio}/produto/{id_produto}/adicionar"])
+    fun adicionarProduto(@PathVariable(value = "id_cardapio") idCardapio: String,
+                         @PathVariable(value = "id_produto") idProduto: String,
                          @RequestBody request: ProdutoRequest): ResponseEntity<CarrinhoResponse> {
         val produto = AdicionarProdutoCarrinhoDTO(idProduto, request.observacoes, request.quantidade)
-        val dto = carrinhoService.adicionarProduto(produto)
+        val dto = carrinhoService.adicionarProduto(produto, idCardapio)
 
         return ResponseEntity.ok(this.map(dto))
     }
 
+    @ApiImplicitParams(ApiImplicitParam(name = "token", value = "Token", required = true, paramType = "header"))
     @DeleteMapping(value = ["/produto/{id_produto}"])
-    fun removerProduto(@PathVariable(value = "id_produto") idProduto: String): ResponseEntity<Void> {
+    fun removerProduto(@PathVariable(value = "id_produto") idProduto: String): ResponseEntity<CarrinhoResponse> {
         carrinhoService.removerProduto(idProduto)
-        return ResponseEntity.ok().build()
+        val carrinho = carrinhoService.buscar()
+        return ResponseEntity.ok(this.map(carrinho))
     }
 
     private fun map(carrinhoDTO: CarrinhoDTO): CarrinhoResponse {
         var itensResponse = this.map(carrinhoDTO.produtos)
-        return CarrinhoResponse(carrinhoDTO.id, itensResponse, carrinhoDTO.valorTotal, carrinhoDTO.dataCriacao)
+        return CarrinhoResponse(carrinhoDTO.id, carrinhoDTO.fornecedorUUID, itensResponse, carrinhoDTO.valorTotal, carrinhoDTO.dataCriacao)
     }
 
     private fun map(produtosCarrinhoDTO: List<ProdutoCarrinhoDTO>): List<ItemCarrinhoResponse> {
         return produtosCarrinhoDTO.map { p ->
-            val produto = ProdutoResponse(p.produto.id, p.produto.nome, p.produto.valor.toString())
+            val produto = ProdutoResponse(p.produto.id, p.produto.cardapioId, p.produto.nome, p.produto.valor.toString())
             ItemCarrinhoResponse(produto, p.quantidade, p.observacoes)
         }
     }

@@ -10,12 +10,12 @@ class ItemCarrinhoResponse {
     var produto: ProdutoResponse?
 
     @JsonProperty(value = "quantidade")
-    var quantidade: Long?
+    var quantidade: Int?
 
     @JsonProperty(value = "observacoes")
     var observacoes: String? = ""
 
-    constructor(produto: ProdutoResponse?, quantidade: Long?, observacoes: String?) {
+    constructor(produto: ProdutoResponse?, quantidade: Int?, observacoes: String?) {
         this.produto = produto
         this.quantidade = quantidade
         this.observacoes = observacoes

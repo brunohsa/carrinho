@@ -1,15 +1,15 @@
 package br.com.unip.carrinho.dto
 
-import java.math.BigDecimal
-
 class ProdutoDTO {
 
     var id: String
+    var cardapioId: String
     var nome: String
-    var valor: BigDecimal
+    var valor: Double
 
-    constructor(id: String, nome: String, valor: BigDecimal) {
+    constructor(id: String, cardapioId: String, nome: String, valor: Double) {
         this.id = id
+        this.cardapioId = cardapioId
         this.nome = nome
         this.valor = valor
     }

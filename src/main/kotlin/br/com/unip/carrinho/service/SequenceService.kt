@@ -19,13 +19,7 @@ class SequenceService(val mongoOperation: MongoOperations,
 
     override fun getSequenceNumeroPedido(key: String): String {
         val sequence = sequenceRepository.findById(key).orElse(DatabaseSequence(key))
-
-        if (sequence.dataRegistro.isEqual(LocalDate.now())) {
-            sequence.seq += 1
-        } else {
-            sequence.seq = 1
-            sequence.dataRegistro = LocalDate.now()
-        }
+        sequence.seq += 1
         sequenceRepository.save(sequence)
         return DecimalFormat(FORMATO_NUMERO_PEDIDO).format(sequence.seq)
     }

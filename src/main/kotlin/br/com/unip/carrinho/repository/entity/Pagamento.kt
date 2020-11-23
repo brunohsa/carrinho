@@ -1,6 +1,5 @@
 package br.com.unip.carrinho.repository.entity
 
-import java.math.BigDecimal
 import java.time.LocalDateTime
 
 class Pagamento {
@@ -13,12 +12,12 @@ class Pagamento {
 
     var formaPagamento: String
 
-    var valor: BigDecimal
+    var valor: Double
 
     var dataPagamento = LocalDateTime.now()
 
     constructor(nomeCompleto: String, numeroCartao: String, dataValidade: String, formaPagamento: String,
-                valor: BigDecimal) {
+                valor: Double) {
         this.nomeCompleto = nomeCompleto
         this.numeroCartao = numeroCartao
         this.dataValidade = dataValidade

@@ -56,8 +56,8 @@ class CorsFilterCustom : Filter {
                 "Variant-Vary, Vary, Version, Via, Viewport-Width, WWW-Authenticate, " +
                 "Want-Digest, Warning, Width, X-Content-Duration, X-Content-Security-Policy, " +
                 "X-CustomHeader, X-DNSPrefetch-Control, X-Forwarded-For, X-Forwarded-Port, " +
-                "X-Forwarded-Proto, X-Modified, X-OTHER, X-PING, X-PINGOTHER, X-Powered-By, X-Requested-With")
-        response.addHeader("Access-Control-Expose-Headers", "auth")
+                "X-Forwarded-Proto, X-Modified, X-OTHER, X-PING, X-PINGOTHER, X-Powered-By, X-Requested-With, token")
+        response.addHeader("Access-Control-Expose-Headers", "token")
 
         val request = req as HttpServletRequest
         if (request.method == "OPTIONS") {

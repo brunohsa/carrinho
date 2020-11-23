@@ -1,14 +1,6 @@
 package br.com.unip.carrinho.dto
 
-class ItemDTO {
+class ItemDTO(val id: String, val nome: String, val observacoes: String?, val quantidade: Int, val valor: Double) {
 
-    var produto: String
-    var observacoes: String? = ""
-    var quantidade: Long = 0
-
-    constructor(produto: String, observacoes: String?, quantidade: Long) {
-        this.produto = produto
-        this.observacoes = observacoes
-        this.quantidade = quantidade
-    }
+    var avaliacao: AvaliacaoProdutoDTO? = null
 }

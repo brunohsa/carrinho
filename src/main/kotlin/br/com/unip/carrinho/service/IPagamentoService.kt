@@ -6,5 +6,5 @@ import java.math.BigDecimal
 
 interface IPagamentoService {
 
-    fun pagar(dadosPagamento: DadosPagamentoDTO, valorPagamento: BigDecimal): Pagamento
+    fun pagar(dadosPagamento: DadosPagamentoDTO, valorPagamento: Double): Pagamento
 }
