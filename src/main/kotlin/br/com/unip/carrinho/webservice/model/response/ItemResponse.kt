@@ -15,4 +15,7 @@ class ItemResponse(@JsonProperty("id")
                    val quantidade: Int,
 
                    @JsonProperty("valor")
-                   val valor: Double)
+                   val valor: Double,
+
+                   @JsonProperty("avaliacao")
+                   val avaliacao: AvaliacaoProdutoResponse?)

@@ -7,8 +7,7 @@ import br.com.unip.carrinho.service.IProdutoService
 import br.com.unip.carrinho.webservice.model.request.AvaliarPedidoRequest
 import br.com.unip.carrinho.webservice.model.request.AvaliarProdutoRequest
 import br.com.unip.carrinho.webservice.model.request.DadosPagamentoRequest
-import br.com.unip.carrinho.webservice.model.response.ItemResponse
-import br.com.unip.carrinho.webservice.model.response.PedidoResponse
+import br.com.unip.carrinho.webservice.model.response.*
 import io.swagger.annotations.ApiImplicitParam
 import io.swagger.annotations.ApiImplicitParams
 import io.swagger.annotations.ApiParam
@@ -69,10 +68,15 @@ class PedidoConsumidorWS(val pedidoService: IPedidoConsumidorService,
     }
 
     private fun map(pedido: PedidoDTO): PedidoResponse {
-        return PedidoResponse(pedido.id, pedido.numero, pedido.status, mapItens(pedido.itens), pedido.valor, pedido.dataPedido)
+        val avaliacaoPedido = pedido.avaliacao?.toResponse()
+        return PedidoResponse(pedido.id, pedido.numero, pedido.status, mapItens(pedido.itens), pedido.valor, pedido.dataPedido, avaliacaoPedido)
     }
 
     private fun mapItens(itens: List<ItemDTO>): List<ItemResponse> {
-        return itens.map { i -> ItemResponse(i.id, i.nome, i.observacoes, i.quantidade, i.valor) }
+        return itens.map { i -> ItemResponse(i.id, i.nome, i.observacoes, i.quantidade, i.valor, i.avaliacao?.toResponse()) }
     }
+
+    private fun AvaliarPedidoDTO.toResponse() = AvaliacaoPedidoResponse(this.pedidoId, this.nota, this.comentario)
+
+    private fun AvaliacaoProdutoDTO.toResponse() = AvaliacaoProdutoResponse(this.usuarioUUID, this.pedidoId, this.produtoId, this.nota)
 }

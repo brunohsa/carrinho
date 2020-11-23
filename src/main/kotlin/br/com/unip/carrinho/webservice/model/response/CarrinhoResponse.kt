@@ -11,6 +11,9 @@ class CarrinhoResponse {
     @JsonProperty(value = "id")
     val id: String?
 
+    @JsonProperty(value = "fornecedor_uuid")
+    val fornecedorUuid: String?
+
     @JsonProperty(value = "itens")
     val itens: List<ItemCarrinhoResponse>
 
@@ -21,7 +24,8 @@ class CarrinhoResponse {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
     var dataCriacao: LocalDateTime
 
-    constructor(id: String?, itens: List<ItemCarrinhoResponse>, valorTotal: Double, dataCriacao: LocalDateTime) {
+    constructor(id: String?, fornecedorUuid: String?, itens: List<ItemCarrinhoResponse>, valorTotal: Double, dataCriacao: LocalDateTime) {
+        this.fornecedorUuid = fornecedorUuid
         this.id = id
         this.itens = itens
         this.valorTotal = valorTotal

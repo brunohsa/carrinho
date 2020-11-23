@@ -61,19 +61,20 @@ class CarrinhoWS(val carrinhoService: ICarrinhoService, val prod: IProdutoServic
 
     @ApiImplicitParams(ApiImplicitParam(name = "token", value = "Token", required = true, paramType = "header"))
     @DeleteMapping(value = ["/produto/{id_produto}"])
-    fun removerProduto(@PathVariable(value = "id_produto") idProduto: String): ResponseEntity<Void> {
+    fun removerProduto(@PathVariable(value = "id_produto") idProduto: String): ResponseEntity<CarrinhoResponse> {
         carrinhoService.removerProduto(idProduto)
-        return ResponseEntity.ok().build()
+        val carrinho = carrinhoService.buscar()
+        return ResponseEntity.ok(this.map(carrinho))
     }
 
     private fun map(carrinhoDTO: CarrinhoDTO): CarrinhoResponse {
         var itensResponse = this.map(carrinhoDTO.produtos)
-        return CarrinhoResponse(carrinhoDTO.id, itensResponse, carrinhoDTO.valorTotal, carrinhoDTO.dataCriacao)
+        return CarrinhoResponse(carrinhoDTO.id, carrinhoDTO.fornecedorUUID, itensResponse, carrinhoDTO.valorTotal, carrinhoDTO.dataCriacao)
     }
 
     private fun map(produtosCarrinhoDTO: List<ProdutoCarrinhoDTO>): List<ItemCarrinhoResponse> {
         return produtosCarrinhoDTO.map { p ->
-            val produto = ProdutoResponse(p.produto.id, p.produto.nome, p.produto.valor.toString())
+            val produto = ProdutoResponse(p.produto.id, p.produto.cardapioId, p.produto.nome, p.produto.valor.toString())
             ItemCarrinhoResponse(produto, p.quantidade, p.observacoes)
         }
     }

@@ -1,15 +1,13 @@
 package br.com.unip.carrinho.service
 
 import br.com.unip.autenticacaolib.util.AuthenticationUtil
-import br.com.unip.carrinho.dto.DadosPagamentoDTO
-import br.com.unip.carrinho.dto.FiltroPedidoDTO
-import br.com.unip.carrinho.dto.PedidoDTO
-import br.com.unip.carrinho.dto.ProdutoCarrinhoDTO
+import br.com.unip.carrinho.dto.*
 import br.com.unip.carrinho.repository.IPedidoRepository
 import br.com.unip.carrinho.repository.entity.Cliente
 import br.com.unip.carrinho.repository.entity.Item
 import br.com.unip.carrinho.repository.entity.Pedido
 import br.com.unip.carrinho.repository.entity.Sequence.PEDIDO_SEQUENCE
+import br.com.unip.carrinho.repository.entity.enums.EStatusPedido
 import org.springframework.stereotype.Service
 
 
@@ -18,7 +16,8 @@ class PedidoConsumidorService(val carrinhoService: ICarrinhoService,
                               val pedidoRepository: IPedidoRepository,
                               val sequenceService: ISequenceService,
                               val pagamentoService: IPagamentoService,
-                              val cadastroService: ICadastroService) : IPedidoConsumidorService, PedidoService() {
+                              val cadastroService: ICadastroService,
+                              val avaliacaoService: IAvaliacaoService) : IPedidoConsumidorService, PedidoService() {
 
     override fun gerar(): PedidoDTO {
         val cadastroUUID = getCadatroUUID()
@@ -41,8 +40,27 @@ class PedidoConsumidorService(val carrinhoService: ICarrinhoService,
     }
 
     override fun buscarPedidos(filtro: FiltroPedidoDTO): List<PedidoDTO> {
-        return this.buscarPedidos(filtro, getCadatroUUID(), "cadastroUUID")
+        val pedidos = this.buscarPedidos(filtro, getCadatroUUID(), "cadastroUUID")
+        this.preencherAvaliacaoPedidos(pedidos)
+        return pedidos
     }
+
+    private fun preencherAvaliacaoPedidos(pedidos: List<PedidoDTO>) {
+        pedidos.filter { p -> EStatusPedido.valueOf(p.status).isConcluido() }
+               .forEach { p ->
+                    val avaliacaoPedido = avaliacaoService.buscarAvaliacaoPedido(getCadatroUUID(), p.id)
+                    p.avaliacao = avaliacaoPedido
+                    this.preencherAvaliacaoItens(p, p.itens)
+                }
+    }
+
+    private fun preencherAvaliacaoItens(pedido: PedidoDTO, itens: List<ItemDTO>) {
+        itens.forEach { item ->
+            val avaliacaoProduto = avaliacaoService.buscarAvaliacaoProduto(getCadatroUUID(), pedido.id, item.id)
+            item.avaliacao = avaliacaoProduto
+        }
+    }
+
 
     override fun pagar(id: String, dadosPagamento: DadosPagamentoDTO): PedidoDTO {
         val pedido = buscarPedido(id, getCadatroUUID())

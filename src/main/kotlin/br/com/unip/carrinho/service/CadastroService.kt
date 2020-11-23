@@ -1,7 +1,7 @@
 package br.com.unip.carrinho.service
 
+import br.com.unip.carrinho.dto.AtualizarNotaFornecedorDTO
 import br.com.unip.carrinho.dto.CadastroDTO
-import br.com.unip.carrinho.dto.PessoaFisicaDTO
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Repository
 import org.springframework.util.LinkedMultiValueMap
@@ -24,6 +24,13 @@ class CadastroService(val restService: IRestService) : ICadastroService {
         val headers = getHeaderComApiKey()
         val url = "$CADASTRO_URL$CADASTRO_PESSOA_FISICA_URL/$cadastroUUID"
         return restService.get(url, CadastroDTO::class, headers)
+    }
+
+    override fun atualizarNotaMediaFornecedor(fornecedorUUID: String, nota: Double) {
+        val headers = getHeaderComApiKey()
+        val url = "$CADASTRO_URL$CADASTRO_PESSOA_FISICA_URL/$fornecedorUUID/atualizar/nota"
+        val body = AtualizarNotaFornecedorDTO(nota)
+        return restService.put(url, body, headers)
     }
 
     private fun getHeaderComApiKey(): LinkedMultiValueMap<String, String> {

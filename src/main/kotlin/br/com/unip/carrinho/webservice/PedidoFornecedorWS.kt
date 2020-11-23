@@ -54,6 +54,6 @@ class PedidoFornecedorWS(val pedidoService: IPedidoFornecedorService) {
     private fun ClienteDTO.toResponse() = ClienteResponse(this.nome, this.telefone)
 
     private fun mapItens(itens: List<ItemDTO>): List<ItemResponse> {
-        return itens.map { i -> ItemResponse(i.id, i.nome, i.observacoes, i.quantidade, i.valor) }
+        return itens.map { i -> ItemResponse(i.id, i.nome, i.observacoes, i.quantidade, i.valor, null) }
     }
 }

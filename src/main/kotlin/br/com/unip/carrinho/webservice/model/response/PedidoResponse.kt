@@ -28,19 +28,28 @@ class PedidoResponse {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm")
     var dataPedido: LocalDateTime
 
-    constructor(id: String?, numero: String, status: String, itens: List<ItemResponse>, valor: Double,
-                cliente: ClienteResponse?, dataPedido: LocalDateTime)
-            : this(id, numero, status, itens, valor, dataPedido) {
-        this.cliente = cliente
-    }
+    @JsonProperty("avaliacao")
+    var avaliacao: AvaliacaoPedidoResponse? = null
 
     constructor(id: String?, numero: String, status: String, itens: List<ItemResponse>, valor: Double,
-                dataPedido: LocalDateTime) {
+                cliente: ClienteResponse?, dataPedido: LocalDateTime) {
         this.id = id
         this.numero = numero
         this.status = status
         this.itens = itens
         this.valor = valor
         this.dataPedido = dataPedido
+        this.cliente = cliente
+    }
+
+    constructor(id: String?, numero: String, status: String, itens: List<ItemResponse>, valor: Double,
+                dataPedido: LocalDateTime, avaliacao: AvaliacaoPedidoResponse?) {
+        this.id = id
+        this.numero = numero
+        this.status = status
+        this.itens = itens
+        this.valor = valor
+        this.dataPedido = dataPedido
+        this.avaliacao = avaliacao
     }
 }

@@ -137,7 +137,7 @@ class CarrinhoService(val carrinhoRepository: ICarrinhoRepository,
 
     private fun map(produtosCarrinho: List<ProdutoCarrinho>): List<ProdutoCarrinhoDTO> {
         return produtosCarrinho.map { pc ->
-            val produto = ProdutoDTO(pc.produto.id, pc.produto.nome, pc.produto.valor)
+            val produto = ProdutoDTO(pc.produto.id, pc.produto.cardapioId!!, pc.produto.nome, pc.produto.valor)
             ProdutoCarrinhoDTO(produto, pc.observacoes, pc.quantidade)
         }
     }

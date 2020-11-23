@@ -8,4 +8,7 @@ class PedidoDTO(val id: String,
                 val status: String,
                 val valor: Double,
                 val cliente: ClienteDTO,
-                val dataPedido: LocalDateTime)
+                val dataPedido: LocalDateTime) {
+
+    var avaliacao: AvaliarPedidoDTO? = null
+}

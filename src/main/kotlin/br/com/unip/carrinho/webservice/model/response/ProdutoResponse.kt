@@ -10,6 +10,9 @@ class ProdutoResponse {
     @JsonProperty(value = "id")
     var id: String?
 
+    @JsonProperty(value = "cardapio_id")
+    var cardapioId: String? = ""
+
     @JsonProperty(value = "nome")
     var nome: String?
 
@@ -17,8 +20,9 @@ class ProdutoResponse {
     @JsonProperty(value = "valor")
     var valor: String? = null
 
-    constructor(id: String?, nome: String?, valor: String?) {
+    constructor(id: String?, cardapioId: String?, nome: String?, valor: String?) {
         this.id = id
+        this.cardapioId = cardapioId
         this.nome = nome
         this.valor = valor
     }
