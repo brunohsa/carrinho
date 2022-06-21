@@ -19,7 +19,7 @@
         <junit.version>4.12</junit.version>
         <spring-boot-version>2.1.6.RELEASE</spring-boot-version>
         <io-jwt.version>0.9.1</io-jwt.version>
-        <mysql-connector>8.0.17</mysql-connector>
+        <mysql-connector>8.0.28</mysql-connector>
         <jaxb.version>2.3.0</jaxb.version>
         <liquibase.version>3.5.3</liquibase.version>
         <change.log.file>db.master.xml</change.log.file>
